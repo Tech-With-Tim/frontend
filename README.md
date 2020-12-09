@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://cdn.discordapp.com/attachments/776153365452554301/786295202092154890/Tech-With-Tim.jpg" alt="Project logo"></a>
+ <img width=200px height=200px src="https://cdn.discordapp.com/attachments/776153365452554301/786297555415859220/Tech-With-Tim.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Tech with Tim website frontend</h3>
