@@ -25,7 +25,8 @@
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Built Using](#built_using)
-- [Contributing](../CONTRIBUTING.md)
+- [Contributing](/CONTRIBUTING.md)
+- [License](/LICENSE.md)
 - [Authors](#authors)
 
 <!-- ## 🧐 About <a name = "about"></a>
@@ -87,6 +88,6 @@ The build is minified and the filenames include the hashes.
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@mohamed040406](https://github.com/mohamed040406) - Everything
-- [@takos22](https://github.com/takos22) - [README.md](/README.md) and [CONTRIBUTING.md](/CONTRIBUTING.md)
+- [@takos22](https://github.com/takos22) - Markdown files
 
 See also the list of [contributors](https://github.com/Tech-With-Tim/Frontend/contributors) who participated in this project.
