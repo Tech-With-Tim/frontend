@@ -88,6 +88,6 @@ The build is minified and the filenames include the hashes.
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@mohamed040406](https://github.com/mohamed040406) - Everything
-- [@takos22](https://github.com/takos22) - README
+- [@takos22](https://github.com/takos22) - [README.md](/README.md) and [CONTRIBUTING.md](/CONTRIBUTING.md)
 
 See also the list of [contributors](https://github.com/Tech-With-Tim/Frontend/contributors) who participated in this project.
