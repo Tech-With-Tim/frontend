@@ -90,4 +90,5 @@ The build is minified and the filenames include the hashes.
 - [@mohamed040406](https://github.com/mohamed040406) - Everything
 - [@takos22](https://github.com/takos22) - Markdown files
 
+
 See also the list of [contributors](https://github.com/Tech-With-Tim/Frontend/contributors) who participated in this project.
