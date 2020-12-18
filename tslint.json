@@ -9,7 +9,7 @@
     "no-conditional-assignment": true,
     "no-consecutive-blank-lines": false,
     "no-console": {
-      "severity": "warning",
+      "severity": "off",
       "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
     },
     "trailing-comma": [false],
@@ -19,7 +19,8 @@
     "no-unused-expression": false,
     "no-trailing-whitespace": false,
     "no-empty": false,
-    "no-any": false
+    "no-any": false,
+    "ban-types": false
   },
   "jsRules": {
     "max-line-length": {
