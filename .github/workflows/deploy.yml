@@ -20,9 +20,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+    - run: npm test
     - run: npm run lint --if-present
     - run: npm run build --if-present
-    - run: npm test
   
   docker:
     name: Publish - Docker Hub
