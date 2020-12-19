@@ -27,12 +27,12 @@ jobs:
   docker:
     name: Publish - Docker Hub
     runs-on: ubuntu-18.04
+    needs: [build]
     env:
       REPO: ${{ secrets.DOCKER_REPO_API }}
     steps:
       - uses: actions/checkout@v1
       - name: Login to Docker Hub
-      - needs: [build]
         run: docker login -u ${{ secrets.DOCKER_USER }} 
              -p ${{ secrets.DOCKER_PASS }}
       - name: Build Docker image
