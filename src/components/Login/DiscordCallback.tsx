@@ -10,6 +10,9 @@ function CallBackComponent(props) {
     if (props.token){
       return props.history.push("/")
     }
+    if (props.error){
+      return props.history.push("/login");
+    }
     props.setCode(code);
   });
   return <></>

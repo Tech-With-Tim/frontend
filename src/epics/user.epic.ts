@@ -11,9 +11,9 @@ const loginEpic = action$ => {
   const failure = error => {
     let e;
     if (error.status === 500){
-      e = "Internal Server Error";
+      e = "Error 500: Internal Server Error";
     }else{
-      e = "Bad Request";
+      e = "Error 400: Bad Request";
     }
     return {type: userConstants.LOGIN_FAILURE, error: e}
   }

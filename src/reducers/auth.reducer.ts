@@ -1,5 +1,4 @@
 import {userConstants} from "../constants";
-import {history} from "../helpers";
 
 const initialState = {
   token: null,
@@ -9,13 +8,11 @@ const initialState = {
 function authReducer(state = initialState, action) {
   switch (action.type) {
     case userConstants.LOGIN_SUCCESS:
-      history.push("/");
       return {
         ...state,
         token: action.token,
       }
     case userConstants.LOGIN_FAILURE:
-      history.push("/login");
       return {
         ...state,
         error: action.error
@@ -24,6 +21,11 @@ function authReducer(state = initialState, action) {
       return {
         ...state,
         token: action.token
+      }
+    case userConstants.LOGOUT:
+      return {
+        ...state,
+        token: null
       }
     default:
       return state

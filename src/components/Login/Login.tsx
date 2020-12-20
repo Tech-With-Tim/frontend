@@ -7,12 +7,13 @@ import {CLIENT_ID, REDIRECT} from "../../config";
 const SCOPES = ["identify"];
 
 function format_scope(scopes) {
-  return scopes.join(" ")
+  return scopes.join(" ");
 }
 
 const discordURL = `https://discord.com/api/oauth2/authorize?response_type=code` +
   `&client_id=${CLIENT_ID}&scope=${format_scope(SCOPES)}` +
-  `&redirect_uri=${encodeURIComponent(REDIRECT)}&prompt=consent`;
+  `&redirect_uri=${encodeURIComponent(REDIRECT)}` +
+  `&prompt=consent`;
 
 const Login = (props) => {
   useEffect(() => {
