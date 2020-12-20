@@ -10,6 +10,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/Tech-With-Tim/Frontend.svg)](https://github.com/Tech-With-Tim/Frontend/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Tech-With-Tim/Frontend.svg)](https://github.com/Tech-With-Tim/Frontend/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![Discord](https://discord.com/api/guilds/501090983539245061/widget.png?style=shield)](https://discord.gg/twt)
 
 </div>
 
