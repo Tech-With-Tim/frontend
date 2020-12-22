@@ -18,12 +18,14 @@ function userReducer(state = initialState, action) {
         ...state,
         loading: false,
         user: action.payload.user,
+        error: null,
       }
     case userConstants.USER_DATA_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.payload.error
+        error: action.payload.error,
+        user: null,
       }
     default:
       return state;
