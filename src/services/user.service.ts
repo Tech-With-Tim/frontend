@@ -15,4 +15,14 @@ const login = (code: string) => {
   });
 }
 
-export{login}
+const getUser = (user: number | "@me", token: string) => {
+  return ajax({
+    url: `${BACKEND_URL}/users/${user}`,
+    headers: {
+      "Authorization": token,
+    },
+    method: "GET"
+  });
+}
+
+export {login, getUser}

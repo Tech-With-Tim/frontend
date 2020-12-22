@@ -1,11 +1,11 @@
 import {userConstants} from "../constants";
 
-const initialState = {
-  token: null,
-  error: null
+interface initialState {
+  token: null | string,
+  error: null | string,
 }
 
-function authReducer(state = initialState, action) {
+function authReducer(state: undefined | initialState = {token: null, error: null}, action) {
   switch (action.type) {
     case userConstants.LOGIN_SUCCESS:
       return {
@@ -23,6 +23,7 @@ function authReducer(state = initialState, action) {
         token: action.token
       }
     case userConstants.LOGOUT:
+      localStorage.removeItem("token");
       return {
         ...state,
         token: null

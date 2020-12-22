@@ -8,6 +8,7 @@ import {setToken} from "./actions";
 import {history} from "./helpers";
 import {Router} from "react-router-dom";
 import Home from "./components/Home/Home";
+import Profile from "./components/UserProfile/Profile";
 
 interface IProps {
   token: string;
@@ -15,30 +16,11 @@ interface IProps {
 }
 
 class App extends React.Component<IProps> {
-  constructor(props) {
-    super(props);
-    this.handleUnload = this.handleUnload.bind(this);
-  }
-
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (token) {
       this.props.setToken(token);
-      localStorage.removeItem("token");
     }
-    window.addEventListener("beforeunload", this.handleUnload)
-  }
-
-  handleUnload(e) {
-    e.preventDefault();
-    const token = this.props.token;
-    if (token) {
-      localStorage.setItem("token", token);
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("beforeunload", this.handleUnload)
   }
 
   render() {
@@ -47,6 +29,10 @@ class App extends React.Component<IProps> {
         <Switch>
           <Route path={"/login"} component={Login}/>
           <Route path={"/auth/discord/callback"} component={CallBack}/>
+          <Route path={"/profile"} render={() => {
+            return <Profile userid={"@me"}/>
+          }}/>
+          {/*<Route path={"/users/:id"} component={Profile}/> TODO: uncomment once api is done*/}
           <Route path={"/"} component={Home}/>
         </Switch>
       </Router>
@@ -56,7 +42,7 @@ class App extends React.Component<IProps> {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.authReducer.token
+    token: state.authReducer.token,
   }
 }
 
