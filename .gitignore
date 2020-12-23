@@ -10,6 +10,10 @@
 
 # production
 /build
+/postgres
+/postgres-data
+/api/postgres-data
+/api/postgres
 
 # misc
 .DS_Store
