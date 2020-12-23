@@ -64,6 +64,21 @@ Run tests with:
 ```sh
 npm test
 ```
+## Api Setup 
+- `cd api`
+- `touch .env`
+   write the .env file based on this template
+   ```env
+   SECRET_KEY='longsecret key'
+   DB_URI=postgresql://user:password@db:5432/twt
+   POSTGRES_USER=user
+   POSTGRES_PASSWORD=password
+   POSTGRES_DB=twt
+   DISCORD_CLIENT_ID=<discord client id : int>
+   DISCORD_CLIENT_SECRET=<discord client secret :string>
+   ```
+- `docker-compose up`
+   This may fail the first time but try again
 
 **⚠ You need to write tests when contributing ⚠**
 
