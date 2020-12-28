@@ -8,13 +8,12 @@ import "./profile.scss";
 
 const Profile = (props) => {
   let {userid} = props;
-  console.log(props);
 
   const {id} = useParams();
   userid = userid || id;
 
   useEffect(() => {
-    if (!props.user) {
+    if (!props.user && !props.loading && !props.error) {
       props.getUser(userid);
     }
   });
