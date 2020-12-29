@@ -1,24 +1,19 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://cdn.discordapp.com/attachments/776153365452554301/786297555415859220/Tech-With-Tim.png" alt="Project logo"></a>
-</p>
+<img align="right" width=200px height=200px src="https://cdn.discordapp.com/attachments/776153365452554301/786297555415859220/Tech-With-Tim.png" alt="Project logo">
 
-<h3 align="center">Tech with Tim website frontend</h3>
+<h1>Tech with Tim website frontend</h1>
 
-<div align="center">
+---
+
+<div>
 
 [![GitHub Issues](https://img.shields.io/github/issues/Tech-With-Tim/Frontend.svg)](https://github.com/Tech-With-Tim/Frontend/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Tech-With-Tim/Frontend.svg)](https://github.com/Tech-With-Tim/Frontend/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![Discord](https://discord.com/api/guilds/501090983539245061/widget.png?style=shield)](https://discord.gg/twt)
+[![Test and deploy](https://github.com/Tech-With-Tim/Frontend/workflows/Test%20and%20deploy/badge.svg)](https://github.com/Tech-With-Tim/Frontend/actions?query=workflow%3A%22Test+and+deploy%22)
 
 </div>
-
----
-
-<p align="center"> Frontend for the Tech with Tim website using React.
-    <br>
-</p>
+<p> Frontend for the Tech with Tim website using React.</p>
 
 ## 📝 Table of Contents
 
@@ -65,10 +60,14 @@ Run tests with:
 ```sh
 npm test
 ```
-## Api Setup 
+
+**⚠ You need to write tests when contributing ⚠**
+
+## Api Setup
+
 - `cd api`
 - `touch .env`
-   write the .env file based on this template
+  write the .env file based on this template
    ```env
    SECRET_KEY='longsecret key'
    DB_URI=postgresql://user:password@db:5432/twt
@@ -80,8 +79,6 @@ npm test
    ```
 - `docker-compose up`
    This may fail the first time but try again
-
-**⚠ You need to write tests when contributing ⚠**
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
