@@ -2,7 +2,9 @@
   "extends": "tslint:recommended",
   "rules": {
     "max-line-length": {
-      "options": [120]
+      "options": [
+        120
+      ]
     },
     "new-parens": true,
     "no-arg": true,
@@ -30,11 +32,15 @@
     "no-empty": false,
     "no-any": false,
     "ban-types": false,
-    "class-name": false
+    "class-name": false,
+    "only-arrow-functions": false,
+    "forin": false
   },
   "jsRules": {
     "max-line-length": {
-      "options": [120]
+      "options": [
+        120
+      ]
     }
   }
 }
