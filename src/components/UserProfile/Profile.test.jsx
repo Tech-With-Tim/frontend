@@ -42,7 +42,7 @@ it("Renders successfully", () => {
 
   const _id = screen.getByTestId("user-id");
   expect(_id).toBeInTheDocument();
-  expect(_id.innerHTML).toBe(user.id);
+  expect(_id.innerHTML).toBe("User id: " + user.id);
 
   const _user = screen.getByTestId("user-user");
   expect(_user).toBeInTheDocument();

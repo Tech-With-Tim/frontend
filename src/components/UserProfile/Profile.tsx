@@ -28,14 +28,17 @@ const Profile = (props) => {
     return error;
   }
 
+  // Change title to the user's name
+  document.title = `${user.username} - Profile`
+
   return (<div className={"t-ctr f-col center-div w-fit center-h-v"}>
     <div>
       <img data-testid={"user-pfp"} className={"br-50-p"}
-           src={getAvatarURI(user.id, user.avatar, {animated: true})} alt={""}/>
+           src={getAvatarURI(user.id, user.avatar, {animated: true})} alt={"User pfp"}/>
     </div>
     <div>
       <h3 data-testid={"user-user"}>{user.username}#{user.discriminator}</h3>
-      <h4 data-testid={"user-id"}>{user.id}</h4>
+      <h5 data-testid={"user-id"}>User id: {user.id}</h5>
     </div>
   </div>);
 }
