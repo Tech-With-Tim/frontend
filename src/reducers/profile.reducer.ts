@@ -2,11 +2,11 @@ import {userConstants} from "../constants";
 
 const initialState = {
   user: null,
-  loading: true,
+  loading: false,
   error: null,
 };
 
-function userReducer(state = initialState, action) {
+function profileReducer(state = initialState, action) {
   switch (action.type) {
     case userConstants.USER_DATA_REQUEST:
       return {
@@ -32,4 +32,4 @@ function userReducer(state = initialState, action) {
   }
 }
 
-export default userReducer;
+export default profileReducer;

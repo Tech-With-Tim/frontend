@@ -27,13 +27,13 @@ class App extends React.Component<IProps> {
     return (
       <Router history={history}>
         <Switch>
-          <Route path={"/login"} component={Login}/>
-          <Route path={"/auth/discord/callback"} component={CallBack}/>
-          <Route path={"/profile"} render={() => {
+          <Route path={"/login"} exact component={Login}/>
+          <Route path={"/auth/discord/callback"} exact component={CallBack}/>
+          <Route path={"/profile"} exact render={() => {
             return <Profile userid={"@me"}/>
           }}/>
           {/*<Route path={"/users/:id"} component={Profile}/> TODO: uncomment once api is done*/}
-          <Route path={"/"} component={Home}/>
+          <Route path={"/"} exact component={Home}/>
         </Switch>
       </Router>
     );

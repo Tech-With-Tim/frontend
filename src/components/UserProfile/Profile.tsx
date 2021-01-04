@@ -20,16 +20,13 @@ const Profile = (props) => {
     }
   });
 
-  if (loading) {
+  if ((loading || !user) && !error) {
     return "Loading...";
   }
 
   if (error) {
-    return error;
+    return <p data-testid={"user-error"}>{error}</p>;
   }
-
-  // Change title to the user's name
-  document.title = `${user.username} - Profile`
 
   return (<div className={"t-ctr f-col center-div w-fit center-h-v"}>
     <div>
@@ -45,7 +42,7 @@ const Profile = (props) => {
 
 const mapStateToProps = state => {
   return {
-    ...state.userReducer
+    ...state.profileReducer
   };
 }
 

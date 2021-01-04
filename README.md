@@ -1,6 +1,6 @@
 <img align="right" width=200px height=200px src="https://cdn.discordapp.com/attachments/776153365452554301/786297555415859220/Tech-With-Tim.png" alt="Project logo">
 
-<h1>Tech with Tim website frontend</h1>
+<h1>Tech With Tim website frontend</h1>
 
 ---
 

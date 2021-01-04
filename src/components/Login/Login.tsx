@@ -16,9 +16,6 @@ const discordURL = `https://discord.com/api/oauth2/authorize?response_type=code`
   `&prompt=consent`;
 
 const Login = (props) => {
-  // Change the title to login
-  document.title = "Tech With Tim - Login"
-
   useEffect(() => {
     if (props.token) {
       return props.history.push("/");

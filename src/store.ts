@@ -12,7 +12,7 @@ declare global {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-function configureStore(initialState = {}, deps = null) {
+function configureStore(initialState = {}, deps: any = null) {
   const epicMiddleware = createEpicMiddleware({
     dependencies: deps || {
       ajax

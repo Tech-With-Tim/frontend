@@ -21,4 +21,12 @@ describe("Actions Creators", () => {
 
     expect(actions.setCode(code)).toEqual(expectedAction);
   });
+
+  it("Logout Action", () => {
+    const expectedAction = {
+      type: types.userConstants.LOGOUT
+    };
+
+    expect(actions.logout()).toEqual(expectedAction);
+  });
 });
