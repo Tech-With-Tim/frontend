@@ -1,0 +1,29 @@
+name: Linting & testing
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Prepare for testing
+        run: npm ci
+
+      - name: Run Linting
+        run: npm run lint
+
+      - name: Start Tests
+        run: npm test
+
+      - name: Test building
+        run: npm run build
