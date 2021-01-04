@@ -16,16 +16,22 @@ const discordURL = `https://discord.com/api/oauth2/authorize?response_type=code`
   `&prompt=consent`;
 
 const Login = (props) => {
+  // Change the title to login
+  document.title = "Tech With Tim - Login"
+
   useEffect(() => {
     if (props.token) {
       return props.history.push("/");
     }
   });
 
-  return <div>
-    <button onClick={() => {
-      window.location.href = discordURL;
-    }}>Login
+  return <div className={"t-ctr f-col center-div w-fit center-h-v"}>
+    <h4>Click the button to login using Discord</h4>
+
+    <button onClick={
+      () => {
+        window.location.href = discordURL;
+      }}>Login
     </button>
     {props.error ? <p>{props.error}</p> : null}
   </div>
