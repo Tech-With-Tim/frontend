@@ -30,7 +30,7 @@ jobs:
   docker:
     name: Publish - Docker Hub
     runs-on: ubuntu-18.04
-    needs: [ build ]
+    needs: [ test ]
     env:
       REPO: ${{ secrets.DOCKER_REPO_API }}
     steps:
