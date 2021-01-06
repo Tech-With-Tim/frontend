@@ -1,0 +1,29 @@
+name: Status Embeds
+
+on:
+  workflow_run:
+    workflows:
+      - Build & Deploy
+      - Lint & Test
+    types:
+      - completed
+
+jobs:
+  embed:
+    name: Send Status Embed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Actions Embed
+        uses: SebastiaanZ/github-status-embed-for-discord@v0.2.1
+        with:
+          webhook_id: '796006792995143710'
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+
+          workflow_name: ${{ github.event.workflow_run.name }}
+          run_id: ${{ github.event.workflow_run.id }}
+          run_number: ${{ github.event.workflow_run.run_number }}
+          status: ${{ github.event.workflow_run.conclusion }}
+          actor: ${{ github.actor }}
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
+          sha: ${{ github.event.workflow_run.head_sha }}

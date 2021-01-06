@@ -1,21 +1,18 @@
 import {userConstants} from "../constants";
-import {history} from "../helpers";
 
-const initialState = {
-  token: null,
-  error: null
+interface initialState {
+  token: null | string,
+  error: null | string,
 }
 
-function authReducer(state = initialState, action) {
+function authReducer(state: undefined | initialState = {token: null, error: null}, action) {
   switch (action.type) {
     case userConstants.LOGIN_SUCCESS:
-      history.push("/");
       return {
         ...state,
         token: action.token,
       }
     case userConstants.LOGIN_FAILURE:
-      history.push("/login");
       return {
         ...state,
         error: action.error
@@ -24,6 +21,12 @@ function authReducer(state = initialState, action) {
       return {
         ...state,
         token: action.token
+      }
+    case userConstants.LOGOUT:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        token: null
       }
     default:
       return state
