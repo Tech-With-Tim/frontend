@@ -16,8 +16,8 @@ jobs:
       - name: Github Actions Embed
         uses: SebastiaanZ/github-status-embed-for-discord@v0.2.1
         with:
-          webhook_id: '${{ secrets.webhook_id }}'
-          webhook_token: ${{ secrets.webhook_token }}
+          webhook_id: '796006792995143710'
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
 
           workflow_name: ${{ github.event.workflow_run.name }}
           run_id: ${{ github.event.workflow_run.id }}
