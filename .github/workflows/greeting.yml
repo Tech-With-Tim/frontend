@@ -1,0 +1,21 @@
+name: Greeting
+
+on: [issues, pull_request]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            Hi **${{ github.actor }}**, Thanks for reporting an issue in our Repository. Please follow the issue template while opening an issue. It should have steps to retrace the issue and other information mentioned in the template.
+          pr-message: |
+            <img align="right" src="https://cdn.discordapp.com/attachments/794169526509764620/794491932666757141/Tech-With-TimM.png">
+            Hey **${{ github.actor }}** welcome to the repo for the Tech With Tim website
+            Please follow the following guidelines while opening a PR:
+            - Always write clean code
+            - Please write tests for whatever functionality you add
+            - Always leave comments so that others can understand what you write
+            - Css frameworks are not welcomed here
