@@ -1,16 +1,18 @@
-name: Linting & testing
+name: Lint & Test
 
 on:
+  push:
   pull_request:
-    branches:
-      - "**"
+
 
 jobs:
-  test:
-    name: Test
+  lint-and-test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
