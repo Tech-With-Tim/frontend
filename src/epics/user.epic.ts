@@ -16,7 +16,7 @@ export const loginEpic = (action$, _, deps) => {
     mergeMap((action: any) => deps.ajax.post(`${BACKEND_URL}/auth/discord/callback`,
       {
         code: action.code,
-        redirect_uri: REDIRECT
+        callback: REDIRECT
       },
       {
         "Content-Type": "application/json",
