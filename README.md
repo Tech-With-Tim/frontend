@@ -19,6 +19,7 @@
 
 <!-- - [About](#about) -->
 - [Getting Started](#getting_started)
+- [Setting Up Api](#api)
 - [Deployment](#deployment)
 - [Built Using](#built_using)
 - [Contributing](/CONTRIBUTING.md)
@@ -63,22 +64,17 @@ npm test
 
 **⚠ You need to write tests when contributing ⚠**
 
-## Api Setup
+## :hammer: Api Setup <a name= "api"></a>
 
 - `cd api`
 - `touch .env`
   write the .env file based on this template
    ```env
    SECRET_KEY='longsecret key'
-   DB_URI=postgresql://user:password@db:5432/twt
-   POSTGRES_USER=user
-   POSTGRES_PASSWORD=password
-   POSTGRES_DB=twt
    DISCORD_CLIENT_ID=<discord client id : int>
    DISCORD_CLIENT_SECRET=<discord client secret :string>
    ```
 - `docker-compose up`
-   This may fail the first time but try again
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
