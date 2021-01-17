@@ -7,10 +7,9 @@ services:
       - "127.0.0.1:7777:5432"
     restart: always
     environment:
-      POSTGRES_USER: "${POSTGRES_USER}"
-      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
-      POSTGRES_DB: "${POSTGRES_DB}"
-
+      POSTGRES_USER: API
+      POSTGRES_PASSWORD: API
+      POSTGRES_DB: API
     volumes:
       - /var/lib/postgresql/data
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/
@@ -21,11 +20,12 @@ services:
       - "5000:5000"
     depends_on:
       - db
+    restart: always
     links:
       - db
     environment:
       SECRET_KEY: "${SECRET_KEY}"
-      DB_URI: "${DB_URI}"
+      DB_URI: postgres://API:API@db:5432/API
       DISCORD_CLIENT_ID: "${DISCORD_CLIENT_ID}"
       DISCORD_CLIENT_SECRET: "${DISCORD_CLIENT_SECRET}"
 
