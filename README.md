@@ -19,6 +19,7 @@
 
 <!-- - [About](#about) -->
 - [Getting Started](#getting_started)
+- [For setting up the Discord application, see this](https://github.com/Tech-With-Tim/API#discord-application)
 - [Setting Up Api](#api)
 - [Deployment](#deployment)
 - [Built Using](#built_using)
