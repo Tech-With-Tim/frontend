@@ -1,19 +1,18 @@
 import "@testing-library/jest-dom";
-import {render, screen} from "../../test-utils";
+import { render, screen } from "../../test-utils";
 
-import {MemoryRouter, Route, Switch} from "react-router-dom";
+import { MemoryRouter, Route, Switch } from "react-router-dom";
 import Profile from "./Profile";
 import Home from "../Home/Home";
 import React from "react";
-import {act} from "react-dom/test-utils";
+import { act } from "react-dom/test-utils";
 import configureStore from "../../store";
-import {of, throwError} from "rxjs";
+import { of, throwError } from "rxjs";
 
-import {getAvatarURI} from "../../helpers";
+import { getAvatarURI } from "../../helpers";
 
 describe('Profile Page', function () {
   it("Renders successfully", () => {
-    jest.useFakeTimers();
     const user = {
       username: "M7MD",
       avatar: "bb79ca6433f16b25c3c95eb46907f13f",
@@ -31,15 +30,11 @@ describe('Profile Page', function () {
     render(<MemoryRouter initialEntries={['/profile']}>
       <Switch>
         <Route path={"/profile"} render={() => {
-          return <Profile userid={"@me"}/>
-        }}/>
-        <Route path={"/"} component={Home}/>
+          return <Profile userid={"@me"} />
+        }} />
+        <Route path={"/"} component={Home} />
       </Switch>
-    </MemoryRouter>, {store});
-
-    act(() => {
-      jest.advanceTimersByTime(3000);
-    });
+    </MemoryRouter>, { store });
 
     const _id = screen.getByTestId("user-id");
     expect(_id).toBeInTheDocument();
@@ -51,7 +46,7 @@ describe('Profile Page', function () {
 
     const _pfp = screen.getByTestId("user-pfp");
     expect(_pfp).toBeInTheDocument();
-    expect(_pfp.getAttribute("src")).toBe(getAvatarURI(user.id, user.avatar, {animated: true}));
+    expect(_pfp.getAttribute("src")).toBe(getAvatarURI(user.id, user.avatar, { animated: true }));
   });
 
   it("Catches errors", () => {
@@ -60,7 +55,7 @@ describe('Profile Page', function () {
     const store = configureStore({}, {
       ajax: {
         get: () => throwError({
-          response: {error},
+          response: { error },
           status: 400
         }),
       }
@@ -69,11 +64,11 @@ describe('Profile Page', function () {
     render(<MemoryRouter initialEntries={['/profile']}>
       <Switch>
         <Route path={"/profile"} render={() => {
-          return <Profile userid={"@me"}/>
-        }}/>
-        <Route path={"/"} component={Home}/>
+          return <Profile userid={"@me"} />
+        }} />
+        <Route path={"/"} component={Home} />
       </Switch>
-    </MemoryRouter>, {store});
+    </MemoryRouter>, { store });
 
     act(() => {
       jest.advanceTimersByTime(3000);

@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./login.scss";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
-import {CLIENT_ID, REDIRECT} from "../../config";
+import { CLIENT_ID, REDIRECT } from "../../config";
 
 const SCOPES = ["identify"];
 
@@ -15,7 +15,7 @@ const discordURL = `https://discord.com/api/oauth2/authorize?response_type=code`
   `&redirect_uri=${encodeURIComponent(REDIRECT)}` +
   `&prompt=consent`;
 
-const Login = (props) => {
+const Login = (props: any) => {
   useEffect(() => {
     if (props.token) {
       return props.history.push("/");

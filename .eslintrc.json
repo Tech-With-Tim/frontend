@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "no-unused-vars": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-equals-spacing": 0,
+    "no-var": 0,
+    "prefer-rest-params": 0,
+    "prefer-spread": 0,
+    "@typescript-eslint/ban-types": 0,
+    "@typescript-eslint/no-explicit-any": 0
+  },
+  "ignorePatterns": [
+    "node_modules/"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

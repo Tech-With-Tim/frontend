@@ -1,17 +1,16 @@
-import React, {useEffect} from "react";
-import {useParams} from "react-router-dom";
-import {connect} from "react-redux";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 
-import {getUser} from "../../actions";
+import { getUser } from "../../actions";
 
-import "./profile.scss";
-import {getAvatarURI} from "../../helpers";
+import { getAvatarURI } from "../../helpers";
 
-const Profile = (props) => {
-  let {userid} = props;
-  const {user, loading, error} = props;
+const Profile = (props: any) => {
+  let { userid } = props;
+  const { user, loading, error } = props;
 
-  const {id} = useParams();
+  const { id } = useParams();
   userid = userid || id;
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const Profile = (props) => {
   return (<div className={"t-ctr f-col center-div w-fit center-h-v"}>
     <div>
       <img data-testid={"user-pfp"} className={"br-50-p"}
-           src={getAvatarURI(user.id, user.avatar, {animated: true})} alt={"User pfp"}/>
+        src={getAvatarURI(user.id, user.avatar, { animated: true })} alt={"User pfp"} />
     </div>
     <div>
       <h3 data-testid={"user-user"}>{user.username}#{user.discriminator}</h3>
@@ -46,6 +45,6 @@ const mapStateToProps = state => {
   };
 }
 
-const mapDispatchToProps = {getUser};
+const mapDispatchToProps = { getUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

@@ -1,13 +1,13 @@
 import React from 'react';
-import {render, screen} from "../../test-utils";
+import { render, screen } from "../../../test-utils";
 import "@testing-library/jest-dom";
-import {MemoryRouter, Route, Switch} from "react-router-dom";
-import {cleanup} from "@testing-library/react";
+import { MemoryRouter, Route, Switch } from "react-router-dom";
+import { cleanup } from "@testing-library/react";
 import DiscordCallback from "./DiscordCallback";
-import Home from "../Home/Home";
-import {of, throwError} from "rxjs";
-import configureStore from "../../store";
-import Login from "./Login";
+import Home from "../../Home/Home";
+import { of, throwError } from "rxjs";
+import configureStore from "../../../store";
+import Login from "../Login";
 
 describe("Discord Auth", () => {
   afterEach(cleanup);
@@ -25,9 +25,9 @@ describe("Discord Auth", () => {
     };
     const store = configureStore({}, deps);
     render(<MemoryRouter initialEntries={[`/auth/discord/callback?code=fakeCode`]}>
-      <Route path={"/auth/discord/callback"} component={DiscordCallback}/>
-      <Route path={"/"} component={Home}/>
-    </MemoryRouter>, {store});
+      <Route path={"/auth/discord/callback"} component={DiscordCallback} />
+      <Route path={"/"} component={Home} />
+    </MemoryRouter>, { store });
 
     expect(screen.getByText(/Hello World/)).toBeInTheDocument();
     expect(screen.getByText(/Profile/)).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("Discord Auth", () => {
       ajax: {
         post: () => throwError({
           status: 400,
-          response: {error: "Bad Request"}
+          response: { error: "Bad Request" }
         })
       }
     }
@@ -47,11 +47,11 @@ describe("Discord Auth", () => {
 
     render(<MemoryRouter initialEntries={[`/auth/discord/callback?code=fakeCode`]}>
       <Switch>
-        <Route path={"/auth/discord/callback"} component={DiscordCallback}/>
-        <Route path={"/login"} exact component={Login}/>
-        <Route path={"/"} component={Home}/>
+        <Route path={"/auth/discord/callback"} component={DiscordCallback} />
+        <Route path={"/login"} exact component={Login} />
+        <Route path={"/"} component={Home} />
       </Switch>
-    </MemoryRouter>, {store});
+    </MemoryRouter>, { store });
 
     expect(screen.getByText(/Login/)).toBeInTheDocument();
     expect(screen.getByText("Bad Request")).toBeInTheDocument();
@@ -64,10 +64,10 @@ describe("Discord Auth", () => {
       }
     };
     render(<MemoryRouter initialEntries={[`/auth/discord/callback?code=fakeCode`]}>
-      <Route path={"/auth/discord/callback"} component={DiscordCallback}/>
-      <Route path={"/login"} exact component={Login}/>
-      <Route path={"/"} component={Home}/>
-    </MemoryRouter>, {initialState});
+      <Route path={"/auth/discord/callback"} component={DiscordCallback} />
+      <Route path={"/login"} exact component={Login} />
+      <Route path={"/"} component={Home} />
+    </MemoryRouter>, { initialState });
 
     expect(screen.getByText(/Hello World/)).toBeInTheDocument();
   });

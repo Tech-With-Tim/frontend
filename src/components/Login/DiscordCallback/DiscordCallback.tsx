@@ -1,16 +1,16 @@
-import React, {useEffect} from "react";
-import {connect} from "react-redux";
-import {setCode} from "../../actions";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { setCode } from "../../../actions";
 
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-function CallBackComponent(props) {
+function CallBackComponent(props: any) {
   const code = new URLSearchParams(useLocation().search).get("code");
   useEffect(() => {
-    if (props.token){
+    if (props.token) {
       return props.history.push("/")
     }
-    if (props.error){
+    if (props.error) {
       return props.history.push("/login");
     }
     props.setCode(code);
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
     error: state.authReducer.error,
   }
 }
-const mapDispatchToProps = {setCode};
+const mapDispatchToProps = { setCode };
 
 const CallBack = connect(mapStateToProps, mapDispatchToProps)(CallBackComponent);
 
