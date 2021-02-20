@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { render, screen } from "./test-utils";
 import "@testing-library/jest-dom";
 import { createMemoryHistory } from "history";
@@ -11,20 +11,24 @@ describe("Renders successfully", () => {
   afterEach(cleanup);
 
   it("Renders Home Page", () => {
-    render(<MemoryRouter initialEntries={[`/`]}>
-      <Route path={"/"} component={Home} />
-    </MemoryRouter>);
+    render(
+      <MemoryRouter initialEntries={[`/`]}>
+        <Route path={"/"} component={Home} />
+      </MemoryRouter>
+    );
 
-    const title = screen.getByText(/Hello World/);
+    const title = screen.getByText(/Tech With Tim/);
     expect(title).toBeInTheDocument();
   });
 
   it("Renders Login Page", () => {
     const history = createMemoryHistory();
     history.push("/login");
-    render(<MemoryRouter initialEntries={[`/login`]}>
-      <Route path={"/login"} component={Login} />
-    </MemoryRouter>);
+    render(
+      <MemoryRouter initialEntries={[`/login`]}>
+        <Route path={"/login"} component={Login} />
+      </MemoryRouter>
+    );
 
     const title = screen.getByText(/Login/);
     expect(title).toBeInTheDocument();
