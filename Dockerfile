@@ -1,4 +1,4 @@
-FROM node:13.12.0-alpine as build
+FROM tiangolo/node-frontend:10 as build
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
