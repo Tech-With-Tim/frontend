@@ -27,10 +27,10 @@ function Home() {
           <h1>Tech With Tim</h1>
           <h4>Programming &amp; Tech Community</h4>
           <InfoButtons>
-            <InfoButton href="https://discord.gg/twt" title="Join our discord server">
+            <InfoButton target="_blank" href="https://discord.gg/twt" title="Join our discord server">
               <img src={discord} /> <span>Join our server</span>
             </InfoButton>
-            <InfoButton href="https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg" title="Subscribe to youtube channel">
+            <InfoButton target="_blank" href="https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg" title="Subscribe to youtube channel">
               <img src={youtube} /> <span>Subscribe</span>
             </InfoButton>
           </InfoButtons>
