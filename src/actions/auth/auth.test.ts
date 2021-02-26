@@ -1,12 +1,12 @@
 import * as actions from "./auth.action";
-import * as types from "../constants/user.constants";
+import * as types from "../../constants/user.constants";
 
 describe("Actions Creators", () => {
   it("Set Token Action", () => {
     const token = "FakeToken";
     const expectedAction = {
       type: types.userConstants.LOGIN_SET_TOKEN,
-      token
+      token,
     };
 
     expect(actions.setToken(token)).toEqual(expectedAction);
@@ -16,7 +16,7 @@ describe("Actions Creators", () => {
     const code = "FakeToken";
     const expectedAction = {
       type: types.userConstants.LOGIN_SET_CODE,
-      code
+      code,
     };
 
     expect(actions.setCode(code)).toEqual(expectedAction);
@@ -24,7 +24,7 @@ describe("Actions Creators", () => {
 
   it("Logout Action", () => {
     const expectedAction = {
-      type: types.userConstants.LOGOUT
+      type: types.userConstants.LOGOUT,
     };
 
     expect(actions.logout()).toEqual(expectedAction);

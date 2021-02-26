@@ -1,15 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import Login from "./components/Login/Login";
 import CallBack from "./components/Login/DiscordCallback/DiscordCallback";
 import { setToken } from "./actions";
-
 import { history } from "./helpers";
 import { Router } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Profile from "./components/UserProfile/Profile";
-import Navbar from "./components/Navbar/Navbar";
+import { HomePage, LoginPage, ProfilePage } from "./components/pages";
+
+const Navbar = React.lazy(
+  () => import(/* webpackChunkName: "nav" */ "./components/Navbar/Navbar")
+);
 
 interface IProps {
   token: string;
@@ -28,16 +28,26 @@ class App extends React.Component<IProps> {
     return (
       <>
         <Router history={history}>
-          <Navbar />
-          <Switch>
-            <Route path={"/login"} exact component={Login} />
-            <Route path={"/auth/discord/callback"} exact component={CallBack} />
-            <Route path={"/profile"} exact render={() => {
-              return <Profile userid={"@me"} />
-            }} />
-            {/*<Route path={"/users/:id"} component={Profile}/> TODO: uncomment once api is done*/}
-            <Route path={"/"} exact component={Home} />
-          </Switch>
+          <Suspense fallback={<div>loading</div>}>
+            <Navbar />
+            <Switch>
+              <Route path={"/login"} exact component={LoginPage} />
+              <Route
+                path={"/auth/discord/callback"}
+                exact
+                component={CallBack}
+              />
+              <Route
+                path={"/profile"}
+                exact
+                render={() => {
+                  return <ProfilePage userid={"@me"} />;
+                }}
+              />
+              {/*<Route path={"/users/:id"} component={Profile}/> TODO: uncomment once api is done*/}
+              <Route path={"/"} exact component={HomePage} />
+            </Switch>
+          </Suspense>
         </Router>
       </>
     );
@@ -47,7 +57,7 @@ class App extends React.Component<IProps> {
 const mapStateToProps = (state) => {
   return {
     token: state.authReducer.token,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, { setToken })(App);

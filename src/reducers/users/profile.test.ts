@@ -1,4 +1,4 @@
-import profileReducer from "./profile.reducer"
+import profileReducer from "./profile.reducer";
 
 describe("Auth Reducer", () => {
   it("Initial State", () => {

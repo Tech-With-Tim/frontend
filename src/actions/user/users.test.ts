@@ -1,4 +1,4 @@
-import * as types from "../constants/user.constants";
+import * as types from "../../constants/user.constants";
 import * as actions from "./user.action";
 
 describe("Users Creators", () => {
