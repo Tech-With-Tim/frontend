@@ -2,8 +2,6 @@
 
 <h1>Tech With Tim website frontend</h1>
 
----
-
 <div>
 
 [![GitHub Issues](https://img.shields.io/github/issues/Tech-With-Tim/Frontend.svg)](https://github.com/Tech-With-Tim/Frontend/issues)
@@ -11,6 +9,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![Discord](https://discord.com/api/guilds/501090983539245061/widget.png?style=shield)](https://discord.gg/twt)
 [![Test and deploy](https://github.com/Tech-With-Tim/Frontend/workflows/Test%20and%20deploy/badge.svg)](https://github.com/Tech-With-Tim/Frontend/actions?query=workflow%3A%22Test+and+deploy%22)
+[![codecov](https://codecov.io/gh/Tech-With-Tim/Frontend/branch/master/graph/badge.svg?token=2WULJRCY1W)](https://codecov.io/gh/Tech-With-Tim/Frontend)
 
 </div>
 <p> Frontend for the Tech with Tim website using React.</p>
@@ -18,6 +17,7 @@
 ## 📝 Table of Contents
 
 <!-- - [About](#about) -->
+
 - [Getting Started](#getting_started)
 - [For setting up the Discord application, see this](https://github.com/Tech-With-Tim/API#discord-application)
 - [Setting Up Api](#api)
@@ -70,11 +70,11 @@ npm test
 - `cd api`
 - `touch .env`
   write the .env file based on this template
-   ```env
-   SECRET_KEY='longsecret key'
-   DISCORD_CLIENT_ID=<discord client id : int>
-   DISCORD_CLIENT_SECRET=<discord client secret :string>
-   ```
+  ```env
+  SECRET_KEY='longsecret key'
+  DISCORD_CLIENT_ID=<discord client id : int>
+  DISCORD_CLIENT_SECRET=<discord client secret :string>
+  ```
 - `docker-compose up`
 
 ## 🚀 Deployment <a name = "deployment"></a>
@@ -99,6 +99,5 @@ The build is minified and the filenames include the hashes.
 
 - [@mohamed040406](https://github.com/mohamed040406) - Everything
 - [@takos22](https://github.com/takos22) - Markdown files
-
 
 See also the list of [contributors](https://github.com/Tech-With-Tim/Frontend/contributors) who participated in this project.

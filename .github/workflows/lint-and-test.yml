@@ -4,7 +4,6 @@ on:
   push:
   pull_request:
 
-
 jobs:
   lint-and-test:
     name: Lint & Test
@@ -25,8 +24,11 @@ jobs:
       - name: Run Linting
         run: npm run lint
 
-      - name: Start Tests
-        run: npm test
+      - name: Install Codecov
+        run: npm install -g codecov
+
+      - name: Run Tests & Report Coverage
+        run: npm run test:cov && codecov
 
       - name: Test building
         run: npm run build
