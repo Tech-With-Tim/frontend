@@ -13,7 +13,7 @@ export const ItemContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   margin-top: 75px;
-
+  margin-bottom: 50px;
   align-items: center;
   justify-content: space-between;
 `;
@@ -41,7 +41,7 @@ export const InfoContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  text-transform: uppercase;
+  
 
   min-width: 50%;
   word-wrap: none;
@@ -49,17 +49,20 @@ export const InfoContainer = styled.div`
   h5 {
     font-size: 1.25rem;
     letter-spacing: 5px;
+    text-transform: uppercase;
   }
 
   h1 {
     color: #f39200;
     letter-spacing: 3px;
     font-size: 2.75rem;
+    text-transform: uppercase;
   }
 
   h4 {
     color: #e94e1b;
     letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
   .details {
