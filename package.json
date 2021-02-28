@@ -24,7 +24,9 @@
     "bfj": "^7.0.2",
     "camelcase": "^6.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "classnames": "^2.2.6",
     "css-loader": "4.3.0",
+    "dotenv": "^8.2.0",
     "dotenv-expand": "5.1.0",
     "eslint": "^7.11.0",
     "eslint-config-react-app": "^6.0.0",
@@ -115,6 +117,7 @@
     ]
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.11",
     "@types/styled-components": "^5.1.7",
     "husky": "^5.0.9",
     "webpack-cli": "^4.5.0"

@@ -1,26 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
-export const Nav = styled.div`
-  margin: 35px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  div:first-child {
-    display: flex;
-    align-items: center;
-  }
-`;
-
 export const NavBrand = styled.img`
   width: 80px;
   height: 80px;
-`;
-
-export const NavItems = styled.ul`
-  list-style: none;
-  display: flex;
-  margin-left: 25px;
 `;
 
 export const NavAnimate = keyframes`
@@ -67,11 +49,14 @@ export const NavDropdown = styled.div<any>`
   display: inline-flex;
   cursor: pointer;
 
-  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 0 0 15px;
 
   position: relative;
 
-  > img {
+  img {
     margin-left: 15px;
     transform: rotateZ(${(props) => (props.isOpen ? "-180deg" : "0")});
     transition: transform 0.25s linear;
@@ -94,14 +79,64 @@ export const NavDropdown = styled.div<any>`
     }
   }
 
+  @media screen and (max-width: 810px) {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+
+    img {
+      display: none;
+    }
+
+    span::after {
+      background-color: transparent;
+    }
+  }
+
   :hover {
-    > span::after {
+    span::after {
       animation: ${NavAnimate} 0.2s linear forwards;
     }
   }
 
   > div {
     display: ${(props) => !props.isOpen && "none"};
+  }
+`;
+
+export const NavItems = styled.ul`
+  list-style: none;
+  display: flex;
+  margin-left: 25px;
+
+  @media screen and (max-width: 810px) {
+    flex-direction: column;
+    background-color: #12131c;
+
+    margin-left: 0;
+
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+
+    transition: left 0.5s linear;
+
+    min-width: 250px;
+    width: fit-content;
+
+    > * {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 3rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    li::after {
+      background-color: transparent;
+      animation: none;
+    }
   }
 `;
 
@@ -124,9 +159,7 @@ export const NavDropItems = styled.div`
 
   border-top: 2px solid #fa9722;
 
-  min-width: 100%;
-
-  padding: 3px 15px;
+  padding: 7px 15px;
 
   transform: translateX(-50%);
   overflow-y: hidden;
@@ -135,13 +168,32 @@ export const NavDropItems = styled.div`
 
   animation: ${ExpandHeightAnimation} 1.5s linear forwards;
 
-  * {
+  > * {
     cursor: pointer;
 
-    border-top: 2px solid #393c49;
+    p {
+      border-top: 2px solid #393c49;
+    }
 
-    :first-child {
-      border: none;
+    &:first-child {
+      p {
+        border: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 810px) {
+    margin: 0;
+    margin-top: 5px;
+    width: 100%;
+    /* border-top: none; */
+
+    position: initial;
+
+    transform: translate(0);
+
+    * {
+      padding-top: 7px;
     }
   }
 
@@ -153,13 +205,13 @@ export const NavDropItems = styled.div`
 export const UserImageContainer = styled.div`
   background: linear-gradient(#ff512f, #dd2476);
   border-radius: 50%;
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  /* padding: 3px; */
+  padding: 38px;
   cursor: pointer;
 `;
 
@@ -167,4 +219,74 @@ export const UserImage = styled.img`
   border-radius: 50%;
   width: 70px;
   height: 70px;
+`;
+
+export const Close = styled.img`
+  width: 35px;
+  position: relative;
+  top: 0;
+  left: -75px;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 810px) {
+    display: none;
+  }
+`;
+
+export const Nav = styled.div`
+  margin: 35px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div:first-child {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 810px) {
+    .user {
+      position: fixed;
+      bottom: 25px;
+      left: -100%;
+
+      margin-left: 25px;
+
+      transition: left 0.5s linear;
+
+      width: 200px;
+
+      align-items: center;
+
+      display: flex;
+      flex-direction: row;
+
+      h2 {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .open-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+  }
+
+  .open {
+    left: 0;
+  }
+
+  @media screen and (min-width: 810px) {
+    .user {
+      h2 {
+        display: none;
+      }
+    }
+
+    .open-btn {
+      display: none;
+    }
+  }
 `;

@@ -20,3 +20,68 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.center-text {
+  text-align: center;
+}
+
+.button-main {
+  background-color: #e94e1b;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  border: none;
+  width: fit-content;
+  padding: 7px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.m {
+  &-t {
+    &-5 {
+      margin-top: 5px;
+    }
+
+    &-10 {
+      margin-top: 10px;
+    }
+
+    &-15 {
+      margin-top: 15px;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  &-row {
+    flex-direction: row !important;
+
+    &-reverse {
+      flex-direction: row-reverse !important;
+    }
+  }
+
+  &-col {
+    flex-direction: column !important;
+
+    &-reverse {
+      flex-direction: column-reverse !important;
+    }
+  }
+
+  &-align {
+    &-f-end {
+      align-items: flex-end;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .center-div-md-m {
+    margin: 0 auto;
+    width: fit-content;
+    text-align: center;
+  }
+}

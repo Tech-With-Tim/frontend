@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import {
   Nav,
+  Close,
   NavBrand,
   NavDropdown,
   NavDropItems,
@@ -12,12 +13,17 @@ import {
   UserImageContainer,
 } from "./Styles";
 
+import cb from "classnames";
+
 import Drop from "./Drop.svg";
+import close from "./close.svg";
+import navOpen from "./nav.svg";
 
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [eventsOpen, setEventsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Nav>
@@ -28,7 +34,8 @@ const Navbar = () => {
             alt="brand"
           />
         </Link>
-        <NavItems>
+        <NavItems className={cb({ open: isOpen })}>
+          <Close onClick={() => setIsOpen(false)} src={close} alt="" />
           <NavItem>
             <Link to="/">Home</Link>
           </NavItem>
@@ -36,11 +43,17 @@ const Navbar = () => {
             isOpen={eventsOpen}
             onClick={() => setEventsOpen(!eventsOpen)}
           >
-            <span>Events</span>
-            <img src={Drop} alt="" />
+            <div>
+              <span>Events</span>
+              <img src={Drop} alt="" />
+            </div>
             <NavDropItems>
-              <p>Timathon</p>
-              <p>Challenges</p>
+              <Link to="/timathon">
+                <p>Timathon</p>
+              </Link>
+              <Link to="/challenges">
+                <p>Challenges</p>
+              </Link>
             </NavDropItems>
           </NavDropdown>
           <NavItem>
@@ -48,14 +61,23 @@ const Navbar = () => {
           </NavItem>
         </NavItems>
       </div>
-      <Link to="/profile">
-        <UserImageContainer>
-          <UserImage
-            src="https://cdn.discordapp.com/avatars/601173582516584602/169beee4924c94b6e30a5c5139d66dac.png?size=2048"
-            alt="pfp"
-          />
-        </UserImageContainer>
-      </Link>
+      <img
+        className="open-btn"
+        onClick={() => setIsOpen(true)}
+        src={navOpen}
+        alt=""
+      />
+      <div>
+        <Link to="/profile" className={cb({ open: isOpen, user: true })}>
+          <UserImageContainer>
+            <UserImage
+              src="https://cdn.discordapp.com/avatars/601173582516584602/169beee4924c94b6e30a5c5139d66dac.png?size=2048"
+              alt="pfp"
+            />
+          </UserImageContainer>
+          <h2>Account</h2>
+        </Link>
+      </div>
     </Nav>
   );
 };

@@ -32,7 +32,8 @@ const postcssNormalize = require("postcss-normalize");
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
+// const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
+const shouldUseSourceMap = false;
 
 const webpackDevClientEntry = require.resolve(
   "react-dev-utils/webpackHotDevClient"
@@ -78,7 +79,7 @@ const hasJsxRuntime = (() => {
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function () {
   const webpackEnv = process.env.NODE_ENV;
-  console.log(webpackEnv);
+
   const isEnvDevelopment = webpackEnv === "development";
   const isEnvProduction = webpackEnv === "production";
 
