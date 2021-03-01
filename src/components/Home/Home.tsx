@@ -61,9 +61,7 @@ function Home() {
             Hosted every 2 months, consisting of a different theme and allowing
             yourself to put your skills to the test.
           </p>
-          <p>
-            <Link to="/timathon"><button className="button-main m-t-10">Read more</button></Link>
-          </p>
+          <Link to="/timathon" className="button-main m-t-10">Read more</Link>
         </InfoContainer>
         <InfoCardsContainer className="center-div-md-m">
           <InfoCard className="center-text">
@@ -85,9 +83,7 @@ function Home() {
           <h5>Weekly</h5>
           <h1>Challenges</h1>
           <p className="details">Submit your solutions and earn badges!</p>
-          <p>
-            <Link to="/challenges"><button className="button-main m-t-10">Read More</button></Link>
-          </p>
+          <Link to="/challenges" className="button-main m-t-10">Read more</Link>
         </InfoContainer>
         <HomeImage>
           <source
