@@ -21,6 +21,7 @@ import challengesSmall from "./challengesSmall.svg";
 
 import discord from "./discord.svg";
 import youtube from "./youtube.svg";
+import {Link} from "react-router-dom";
 
 function Home() {
   return (
@@ -61,7 +62,7 @@ function Home() {
             yourself to put your skills to the test.
           </p>
           <p>
-            <button className="button-main m-t-10">Read more</button>
+            <Link to="/timathon"><button className="button-main m-t-10">Read more</button></Link>
           </p>
         </InfoContainer>
         <InfoCardsContainer className="center-div-md-m">
@@ -85,7 +86,7 @@ function Home() {
           <h1>Challenges</h1>
           <p className="details">Submit your solutions and earn badges!</p>
           <p>
-            <button className="button-main m-t-10">Read More</button>
+            <Link to="/challenges"><button className="button-main m-t-10">Read More</button></Link>
           </p>
         </InfoContainer>
         <HomeImage>
