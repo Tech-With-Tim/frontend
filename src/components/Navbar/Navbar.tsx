@@ -60,7 +60,7 @@ const Navbar = () => {
             <Link to="/community">Community</Link>
           </NavItem>
           <NavItem>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/bot">Bot</Link>
           </NavItem>
         </NavItems>
       </div>

@@ -79,7 +79,7 @@ export const NavDropdown = styled.div<any>`
     }
   }
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 900px) {
     margin: 0 auto;
     padding: 0;
     text-align: center;
@@ -109,7 +109,7 @@ export const NavItems = styled.ul`
   display: flex;
   margin-left: 25px;
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 900px) {
     flex-direction: column;
     background-color: #12131c;
 
@@ -213,6 +213,7 @@ export const UserImageContainer = styled.div`
   justify-content: center;
   padding: 38px;
   cursor: pointer;
+  
 `;
 
 export const UserImage = styled.img`
@@ -229,7 +230,7 @@ export const Close = styled.img`
 
   cursor: pointer;
 
-  @media screen and (min-width: 810px) {
+  @media screen and (min-width: 900px) {
     display: none;
   }
 `;
@@ -245,7 +246,7 @@ export const Nav = styled.div`
     align-items: center;
   }
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 900px) {
     .user {
       position: fixed;
       bottom: 25px;
@@ -278,7 +279,7 @@ export const Nav = styled.div`
     left: 0;
   }
 
-  @media screen and (min-width: 810px) {
+  @media screen and (min-width: 900px) {
     .user {
       h2 {
         display: none;
