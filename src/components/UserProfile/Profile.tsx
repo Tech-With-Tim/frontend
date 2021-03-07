@@ -6,7 +6,13 @@ import { getUser } from "../../actions";
 
 import { getAvatarURI } from "../../helpers";
 
-import { ProfileContainer, ProfileInfoContainer, ProfileInfo } from "./Styles";
+import {
+  ProfileContainer,
+  ProfileInfoContainer,
+  BigProfileInfoContainer,
+  ProfileInfo,
+  UserPic,
+} from "./Styles";
 
 import ChallengeHistoryCard from "./ChallengeHistoryCard.component";
 
@@ -66,24 +72,8 @@ const Profile = (props: any) => {
 
   return (
     <div>
-      <div className={"t-ctr f-col center-div w-fit center-h-v"}>
-        <div>
-          <img
-            data-testid={"user-pfp"}
-            className={"br-50-p"}
-            src={getAvatarURI(user.id, user.avatar, { animated: true })}
-            alt={"User pfp"}
-          />
-        </div>
-        <div>
-          <h3 data-testid={"user-user"}>
-            {user.username}#{user.discriminator}
-          </h3>
-          <h5 data-testid={"user-id"}>User id: {user.id}</h5>
-        </div>
-      </div>
       <ProfileContainer>
-        <ProfileInfoContainer>
+        <BigProfileInfoContainer>
           <ProfileInfo>
             <h1>Challenge History</h1>
             {challenges.map(challenge => {
@@ -99,6 +89,28 @@ const Profile = (props: any) => {
               );
             })}
           </ProfileInfo>
+        </BigProfileInfoContainer>
+        <ProfileInfoContainer>
+          <ProfileInfo>
+            <div>
+              <UserPic>
+                <img
+                  data-testid={"user-pfp"}
+                  className={"br-50-p"}
+                  src={getAvatarURI(user.id, user.avatar, { animated: true })}
+                  alt={"User pfp"}
+                />
+              </UserPic>
+              <div>
+                <h5 data-testid={"user-user"}>{user.username}</h5>
+                <h4>#{user.discriminator}</h4>
+                {/* <h5 data-testid={"user-id"}>User id: {user.id}</h5> */}
+              </div>
+            </div>
+          </ProfileInfo>
+        </ProfileInfoContainer>
+        <ProfileInfoContainer>
+          <ProfileInfo></ProfileInfo>
         </ProfileInfoContainer>
       </ProfileContainer>
     </div>
