@@ -59,6 +59,9 @@ const Navbar = () => {
           <NavItem>
             <Link to="/community">Community</Link>
           </NavItem>
+          <NavItem>
+            <Link to="/bot">Bot</Link>
+          </NavItem>
         </NavItems>
       </div>
       <img

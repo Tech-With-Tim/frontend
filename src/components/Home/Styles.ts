@@ -77,7 +77,7 @@ export const InfoContainer = styled.div`
   @media screen and (max-width: 1000px) {
     text-align: center;
     align-items: center;
-    max-width: 400px;
+    max-width: 800px;
 
     margin: 0 auto;
     margin-bottom: 25px;
@@ -108,7 +108,7 @@ export const InfoButton = styled.a`
   padding: 5px 10px;
 
   cursor: pointer;
-
+  margin-right: 15px;
   min-width: fit-content;
   outline: none;
 
