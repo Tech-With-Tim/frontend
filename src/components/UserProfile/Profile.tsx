@@ -12,11 +12,15 @@ import {
   BigProfileInfoContainer,
   ProfileInfo,
   UserPic,
+  ProfileHeader,
 } from "./Styles";
 
 import ChallengeHistoryCard from "./ChallengeHistoryCard.component";
+import Loading from "../Others/Loading/Loading.component";
+import Badge from "./Badge.component";
+import { BADGENAMES } from "./constants";
 
-const challenges = [
+const challengeList = [
   {
     no: 1,
     solution: "passed",
@@ -49,6 +53,23 @@ const challenges = [
   },
 ];
 
+const badgeList = [
+  {
+    name: BADGENAMES.Badge1,
+    occurence: 5,
+  },
+
+  {
+    name: BADGENAMES.Badge2,
+    occurence: 3,
+  },
+
+  {
+    name: BADGENAMES.Badge3,
+    occurence: 7,
+  },
+];
+
 const Profile = (props: any) => {
   let { userid } = props;
   const { user, loading, error } = props;
@@ -63,7 +84,7 @@ const Profile = (props: any) => {
   });
 
   if ((loading || !user) && !error) {
-    return "Loading...";
+    return <Loading />;
   }
 
   if (error) {
@@ -72,11 +93,12 @@ const Profile = (props: any) => {
 
   return (
     <div>
+      <ProfileHeader>Profile</ProfileHeader>
       <ProfileContainer>
         <BigProfileInfoContainer>
           <ProfileInfo>
             <h1>Challenge History</h1>
-            {challenges.map(challenge => {
+            {challengeList.map((challenge) => {
               return (
                 <div key={challenge.no}>
                   <ChallengeHistoryCard
@@ -90,9 +112,9 @@ const Profile = (props: any) => {
             })}
           </ProfileInfo>
         </BigProfileInfoContainer>
-        <ProfileInfoContainer>
-          <ProfileInfo>
-            <div>
+        <ProfileInfo>
+          <ProfileInfoContainer>
+            <div className="profile">
               <UserPic>
                 <img
                   data-testid={"user-pfp"}
@@ -101,23 +123,31 @@ const Profile = (props: any) => {
                   alt={"User pfp"}
                 />
               </UserPic>
-              <div>
-                <h5 data-testid={"user-user"}>{user.username}</h5>
-                <h4>#{user.discriminator}</h4>
-                {/* <h5 data-testid={"user-id"}>User id: {user.id}</h5> */}
-              </div>
             </div>
-          </ProfileInfo>
-        </ProfileInfoContainer>
+            <div className="profile-name">
+              <h5 data-testid={"user-user"}>{user.username}</h5>
+              <h4>#{user.discriminator}</h4>
+              {/* <h5 data-testid={"user-id"}>User id: {user.id}</h5> */}
+            </div>
+          </ProfileInfoContainer>
+        </ProfileInfo>
         <ProfileInfoContainer>
-          <ProfileInfo></ProfileInfo>
+          {badgeList.map((badge) => {
+            return (
+              <Badge
+                key={badge.name}
+                name={badge.name}
+                occurence={badge.occurence}
+              />
+            );
+          })}
         </ProfileInfoContainer>
       </ProfileContainer>
     </div>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     ...state.profileReducer,
   };
