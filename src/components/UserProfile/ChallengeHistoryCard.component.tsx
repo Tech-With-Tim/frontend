@@ -15,7 +15,6 @@ function ChallengeHistoryCard({ difficulty, solution, no }: Props) {
     "dot" + (difficulty === DIFFICULTY.hard ? " red" : ""),
     difficulty,
   ];
-  console.log(difficultyClassNames);
   return (
     <ChallengeHistoryCardStyle>
       <div className={solution + " solution-card"}>
