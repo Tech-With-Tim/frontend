@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { getUser } from "../../actions";
@@ -88,7 +88,7 @@ const Profile = (props: any) => {
   }
 
   if (error) {
-    return <p data-testid={"user-error"}>{error}</p>;
+    return <Redirect to="/login" />;
   }
 
   return (
