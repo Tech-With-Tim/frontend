@@ -126,7 +126,7 @@ const Profile = (props: any) => {
             </div>
             <div className="profile-name">
               <h5 data-testid={"user-user"}>{user.username}</h5>
-              <h4>#{user.discriminator}</h4>
+              <h4 data-testid={"user-discriminator"}>#{user.discriminator}</h4>
               {/* <h5 data-testid={"user-id"}>User id: {user.id}</h5> */}
             </div>
           </ProfileInfoContainer>

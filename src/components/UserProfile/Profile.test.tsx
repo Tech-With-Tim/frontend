@@ -49,13 +49,13 @@ describe("Profile Page", function () {
       { store }
     );
 
-    const _id = screen.getByTestId("user-id");
-    expect(_id).toBeInTheDocument();
-    expect(_id.innerHTML).toBe("User id: " + user.id);
-
     const _user = screen.getByTestId("user-user");
     expect(_user).toBeInTheDocument();
-    expect(_user.innerHTML).toBe(`${user.username}#${user.discriminator}`);
+    expect(_user.innerHTML).toBe(user.username);
+
+    const _discriminator = screen.getByTestId("user-discriminator");
+    expect(_discriminator).toBeInTheDocument();
+    expect(_discriminator.innerHTML).toBe(`#${user.discriminator}`);
 
     const _pfp = screen.getByTestId("user-pfp");
     expect(_pfp).toBeInTheDocument();
@@ -98,8 +98,5 @@ describe("Profile Page", function () {
     act(() => {
       jest.advanceTimersByTime(3000);
     });
-
-    const _error = screen.getByTestId("user-error");
-    expect(_error).toBeInTheDocument();
   });
 });
