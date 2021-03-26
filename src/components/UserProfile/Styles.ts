@@ -24,7 +24,7 @@ export const ProfileHeader = styled.div`
 export const ProfileContainer = styled.div`
   background-color: #292e39;
   border-radius: 20px;
-  width: 80vw;
+  width: 70vw;
   min-height: 55vh;
   margin: auto;
   display: grid;
@@ -41,8 +41,9 @@ export const ProfileInfoContainer = styled.div`
   background-color: #313a48;
   border-radius: 20px;
   padding: 15px;
-  margin: 10px;
+  margin: 15px 15px 15px 0;
   display: flex;
+  box-shadow: 0 0 4px rgb(35, 35, 35);
 
   img {
     margin: 0 10px;
@@ -66,7 +67,8 @@ export const BigProfileInfoContainer = styled.div`
   border-radius: 20px;
   padding: 15px;
   grid-row: 1/3;
-  margin: 10px;
+  margin: 15px;
+  box-shadow: 0 0 4px rgb(35, 35, 35);
 
   @media screen and (max-width: 1000px) {
     grid-row: 2/3;

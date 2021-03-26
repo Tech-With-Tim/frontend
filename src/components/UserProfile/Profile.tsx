@@ -131,7 +131,7 @@ const Profile = (props: any) => {
             </div>
           </ProfileInfoContainer>
         </ProfileInfo>
-        <ProfileInfoContainer>
+        <ProfileInfoContainer style={{ marginTop: 0 }}>
           {badgeList.map((badge) => {
             return (
               <Badge
