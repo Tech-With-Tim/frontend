@@ -7,6 +7,8 @@ import { history } from "./helpers";
 import { Router } from "react-router-dom";
 import { HomePage, LoginPage, ProfilePage } from "./components/pages";
 
+import Loading from "./components/Others/Loading/Loading.component";
+
 const Navbar = React.lazy(
   () => import(/* webpackChunkName: "nav" */ "./components/Navbar/Navbar")
 );
@@ -28,7 +30,13 @@ class App extends React.Component<IProps> {
     return (
       <>
         <Router history={history}>
-          <Suspense fallback={<div>loading</div>}>
+          <Suspense
+            fallback={
+              <div>
+                <Loading />
+              </div>
+            }
+          >
             <Navbar />
             <Switch>
               <Route path={"/login"} exact component={LoginPage} />
@@ -54,7 +62,7 @@ class App extends React.Component<IProps> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     token: state.authReducer.token,
   };
