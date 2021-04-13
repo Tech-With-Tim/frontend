@@ -16,13 +16,17 @@ import cb from "classnames";
 
 import Drop from "./Drop.svg";
 import close from "./close.svg";
-import navOpen from "./nav.svg";
 
 import { Link } from "react-router-dom";
+import { NavbarIcon } from "../../icons";
+import { useAuthStore } from "../../stores/useAuthStore";
+import { getAvatarURI } from "../../helpers";
 
 const Navbar = () => {
-  const [eventsOpen, setEventsOpen] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [eventsOpen, setEventsOpen] = useState<boolean>(false);
+
+  const user = useAuthStore((s) => s.user);
 
   return (
     <Nav>
@@ -63,21 +67,28 @@ const Navbar = () => {
           </NavItem>
         </NavItems>
       </div>
-      <img
-        className="open-btn"
-        onClick={() => setIsOpen(true)}
-        src={navOpen}
-        alt=""
-      />
+      <span className="cursor-pointer open-btn" onClick={() => setIsOpen(true)}>
+        <NavbarIcon fill="white" />
+      </span>
       <div>
         <Link to="/profile" className={cb({ open: isOpen, user: true })}>
-          <UserImageContainer>
-            <UserImage
-              src="https://cdn.discordapp.com/avatars/601173582516584602/169beee4924c94b6e30a5c5139d66dac.png?size=2048"
-              alt="pfp"
-            />
-          </UserImageContainer>
-          <h2>Account</h2>
+          {user ? (
+            <>
+              <UserImageContainer>
+                <UserImage
+                  src={getAvatarURI(user.id, user.avatar, {
+                    size: 64,
+                    animated: true,
+                  })}
+                  alt="pfp"
+                  className="max-w-none"
+                />
+              </UserImageContainer>
+              <h2>Account</h2>
+            </>
+          ) : (
+            <>Sign In</>
+          )}
         </Link>
       </div>
     </Nav>

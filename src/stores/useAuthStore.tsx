@@ -1,28 +1,32 @@
 import axios from "axios";
 import create from "zustand";
-import { combine, devtools } from "zustand/middleware";
+import { devtools } from "zustand/middleware";
+import { User } from "../types/models.types";
 
-export const useAuthStore = create(
-  devtools(
-    combine(
-      {
-        user: null,
-        token: localStorage.getItem("token"),
-      },
-      (set, get) => ({
-        setToken: (token: string) => {
-          localStorage.setItem("token", token);
+export type AuthStore = {
+  user: User | null;
+  token: string | null;
+  fetchUser: () => Promise<void>;
+  setToken: (token: string) => void;
+};
 
-          set({ token });
-        },
-        fetchUser: async () => {
-          const user = await axios
-            .get("/users/@me", { headers: { Authorization: get().token } })
-            .then((res) => res.data);
+export const useAuthStore = create<AuthStore>(
+  devtools((set, get) => ({
+    user: null,
+    token: localStorage.getItem("token"),
+    setToken: (token: string) => {
+      localStorage.setItem("token", token);
 
-          set({ user });
-        },
-      })
-    )
-  )
+      set({ token });
+    },
+    fetchUser: async () => {
+      const user = await axios
+        .get("/users/@me", {
+          headers: { Authorization: get().token },
+        })
+        .then((res) => res.data);
+
+      set({ user });
+    },
+  }))
 );

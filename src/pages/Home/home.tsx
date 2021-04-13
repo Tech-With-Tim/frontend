@@ -6,20 +6,18 @@ import {
   HomeImage,
   InfoButtons,
   InfoButton,
+  InfoCardsContainer,
+  InfoCardContainer,
 } from "./Styles";
 
-import { InfoCard } from "../InfoCard/InfoCard";
-import { InfoCardsContainer } from "../InfoCard/Styles";
+import home1 from "../../images/home1.svg";
+import home1s from "../../images/home1small.svg";
 
-import home1 from "./home1.svg";
-import home1s from "./home1small.svg";
+import challenges from "../../images/home.challenges.svg";
+import challengesSmall from "../../images/home.challengesSmall.svg";
 
-import challenges from "./challenges.svg";
-import challengesSmall from "./challengesSmall.svg";
-
-import discord from "./discord.svg";
-import youtube from "./youtube.svg";
 import { Link } from "react-router-dom";
+import { DiscordIcon, YoutubeIcon } from "../../icons";
 
 function Home() {
   return (
@@ -35,14 +33,16 @@ function Home() {
               href="https://discord.gg/twt"
               title="Join our discord server"
             >
-              <img src={discord} /> <span>Join our server</span>
+              <DiscordIcon fill="#FA9722" width={50} height={50} />
+              <span>Join our server</span>
             </InfoButton>
             <InfoButton
               target="_blank"
               href="https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg"
               title="Subscribe to youtube channel"
             >
-              <img src={youtube} /> <span>Subscribe</span>
+              <YoutubeIcon fill="#FA9722" width={55} height={53} />
+              <span>Subscribe</span>
             </InfoButton>
           </InfoButtons>
         </InfoContainer>
@@ -64,18 +64,18 @@ function Home() {
           </Link>
         </InfoContainer>
         <InfoCardsContainer className="center-div-md-m">
-          <InfoCard className="center-text">
+          <InfoCardContainer className="center-text">
             <h1>07</h1>
             <h4>Code Jams</h4>
-          </InfoCard>
-          <InfoCard className="center-text">
+          </InfoCardContainer>
+          <InfoCardContainer className="center-text">
             <h1>617</h1>
             <h4>Teams</h4>
-          </InfoCard>
-          <InfoCard className="center-text">
+          </InfoCardContainer>
+          <InfoCardContainer className="center-text">
             <h1>212</h1>
             <h4>Submissions</h4>
-          </InfoCard>
+          </InfoCardContainer>
         </InfoCardsContainer>
       </ItemContainer>
       <ItemContainer className="flex-row-reverse">

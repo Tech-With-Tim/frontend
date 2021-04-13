@@ -1,11 +1,15 @@
 const discordCDN = "https://cdn.discordapp.com/";
 
 interface avatarArgs {
-  size?: number,
-  animated?: boolean,
+  size?: number;
+  animated?: boolean;
 }
 
-export const getAvatarURI = (id, avatar, args: avatarArgs = {}) => {
+export const getAvatarURI = (
+  id: string,
+  avatar: string,
+  args: avatarArgs = {}
+) => {
   const formattedArgs: any = [];
   let ext = "png";
   for (const arg in args) {
@@ -17,5 +21,7 @@ export const getAvatarURI = (id, avatar, args: avatarArgs = {}) => {
     }
     formattedArgs.push(`${arg}=${args[arg]}`);
   }
-  return discordCDN + `avatars/${id}/${avatar}.${ext}?${formattedArgs.join("&")}`;
-}
+  return (
+    discordCDN + `avatars/${id}/${avatar}.${ext}?${formattedArgs.join("&")}`
+  );
+};

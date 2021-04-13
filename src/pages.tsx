@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
 export const HomePage = lazy(
-  () => import(/* webpackChunkName: "home" */ "./pages/index")
+  () => import(/* webpackChunkName: "home" */ "./pages/Home/home")
 );
 
 export const LoginPage = lazy(
@@ -9,7 +9,7 @@ export const LoginPage = lazy(
 );
 
 export const ProfilePage = lazy(
-  () => import(/* webpackChunkName: "profile" */ "./pages/profile")
+  () => import(/* webpackChunkName: "profile" */ "./pages/Profile/profile")
 );
 
 export const DiscordCallbackPage = lazy(
