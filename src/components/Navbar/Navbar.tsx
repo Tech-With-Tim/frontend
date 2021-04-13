@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 
 import {
   Nav,
@@ -85,4 +84,4 @@ const Navbar = () => {
   );
 };
 
-export default connect()(Navbar);
+export default Navbar;

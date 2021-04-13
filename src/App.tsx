@@ -1,35 +1,34 @@
-import React, { Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
-import CallBack from "./components/Login/DiscordCallback/DiscordCallback";
-import { setToken } from "./actions";
+import React, { Suspense, useEffect } from "react";
 import { history } from "./helpers";
 import { Router } from "react-router-dom";
-import { HomePage, LoginPage, ProfilePage } from "./components/pages";
 
-import Loading from "./components/Others/Loading/Loading.component";
+import Loading from "./components/Loading/Loading.component";
+
+import { Switch, Route } from "react-router-dom";
+import { DiscordCallbackPage, HomePage, LoginPage, ProfilePage } from "./pages";
+import { useAuthStore } from "./stores/useAuthStore";
 
 const Navbar = React.lazy(
   () => import(/* webpackChunkName: "nav" */ "./components/Navbar/Navbar")
 );
 
-interface IProps {
-  token: string;
-  setToken: Function;
-}
+const App = () => {
+  const user = useAuthStore((s) => s.user);
+  const hasToken = useAuthStore((s) => !!s.token);
+  const fetchUser = useAuthStore((s) => s.fetchUser);
 
-class App extends React.Component<IProps> {
-  componentDidMount() {
-    const token = localStorage.getItem("token");
-    if (token) {
-      this.props.setToken(token);
+  useEffect(() => {
+    if (hasToken) {
+      if (!user) {
+        fetchUser();
+      }
     }
-  }
+  }, [hasToken, user]);
 
-  render() {
-    return (
-      <>
-        <Router history={history}>
+  return (
+    <>
+      <Router history={history}>
+        {(user && hasToken) || (!hasToken && !user) ? (
           <Suspense
             fallback={
               <div>
@@ -43,29 +42,18 @@ class App extends React.Component<IProps> {
               <Route
                 path={"/auth/discord/callback"}
                 exact
-                component={CallBack}
+                component={DiscordCallbackPage}
               />
-              <Route
-                path={"/profile"}
-                exact
-                render={() => {
-                  return <ProfilePage userid={"@me"} />;
-                }}
-              />
-              {/*<Route path={"/users/:id"} component={Profile}/> TODO: uncomment once api is done*/}
+              <Route path={"/profile"} exact component={ProfilePage} />
               <Route path={"/"} exact component={HomePage} />
             </Switch>
           </Suspense>
-        </Router>
-      </>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    token: state.authReducer.token,
-  };
+        ) : (
+          <Loading />
+        )}
+      </Router>
+    </>
+  );
 };
 
-export default connect(mapStateToProps, { setToken })(App);
+export default App;

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import "./login.scss";
-import { connect } from "react-redux";
 
 import { CLIENT_ID, REDIRECT } from "../../config";
+import { useAuthStore } from "../../stores/useAuthStore";
 
 const SCOPES = ["identify"];
 
@@ -16,12 +15,12 @@ const discordURL =
   `&redirect_uri=${encodeURIComponent(REDIRECT)}` +
   `&prompt=consent`;
 
-const Login = (props: any) => {
+const LoginPage = (props: any) => {
   useEffect(() => {
-    if (props.token) {
-      return props.history.push("/");
+    if (useAuthStore.getState().token) {
+      props.history.push("/");
     }
-  });
+  }, []);
 
   return (
     <div className={"t-ctr f-col center-div w-fit center-h-v"}>
@@ -33,11 +32,4 @@ const Login = (props: any) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    token: state.authReducer.token,
-    error: state.authReducer.error,
-  };
-};
-
-export default connect(mapStateToProps)(Login);
+export default LoginPage;

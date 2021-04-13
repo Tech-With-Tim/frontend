@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { logout } from "../../actions";
 import {
   HomeContainer,
   InfoContainer,
@@ -21,7 +19,7 @@ import challengesSmall from "./challengesSmall.svg";
 
 import discord from "./discord.svg";
 import youtube from "./youtube.svg";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -61,7 +59,9 @@ function Home() {
             Hosted every 2 months, consisting of a different theme and allowing
             yourself to put your skills to the test.
           </p>
-          <Link to="/timathon" className="button-main m-t-10">Read more</Link>
+          <Link to="/timathon" className="button-main m-t-10">
+            Read more
+          </Link>
         </InfoContainer>
         <InfoCardsContainer className="center-div-md-m">
           <InfoCard className="center-text">
@@ -83,7 +83,9 @@ function Home() {
           <h5>Weekly</h5>
           <h1>Challenges</h1>
           <p className="details">Submit your solutions and earn badges!</p>
-          <Link to="/challenges" className="button-main m-t-10">Read more</Link>
+          <Link to="/challenges" className="button-main m-t-10">
+            Read more
+          </Link>
         </InfoContainer>
         <HomeImage>
           <source
@@ -98,14 +100,4 @@ function Home() {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    auth: {
-      token: state.authReducer.token,
-    },
-  };
-};
-
-const mapDispatchToProps = { logout };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

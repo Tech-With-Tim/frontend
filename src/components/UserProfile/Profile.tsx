@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-
-import { getUser } from "../../actions";
 
 import { getAvatarURI } from "../../helpers";
 
@@ -16,7 +13,7 @@ import {
 } from "./Styles";
 
 import ChallengeHistoryCard from "./ChallengeHistoryCard.component";
-import Loading from "../Others/Loading/Loading.component";
+import Loading from "../Loading/Loading.component";
 import Badge from "./Badge.component";
 import { BADGENAMES } from "./constants";
 
@@ -74,7 +71,7 @@ const Profile = (props: any) => {
   let { userid } = props;
   const { user, loading, error } = props;
 
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   userid = userid || id;
 
   useEffect(() => {
@@ -147,12 +144,4 @@ const Profile = (props: any) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    ...state.profileReducer,
-  };
-};
-
-const mapDispatchToProps = { getUser };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default Profile;

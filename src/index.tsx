@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
 import App from "./App";
 
-import { Provider } from 'react-redux';
+import axios from "axios";
+import { BACKEND_URL } from "./config";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-import configureStore from "./store";
+import { ReactQueryDevtools } from "react-query/devtools";
+
+axios.defaults.baseURL = BACKEND_URL;
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={configureStore()}>
-      <App/>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <App />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
