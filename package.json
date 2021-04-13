@@ -3,6 +3,8 @@
   "version": "0.1.0a",
   "private": false,
   "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "@tailwindcss/jit": "^0.1.18",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
@@ -36,9 +38,9 @@
   "scripts": {
     "lint": "eslint -c .eslintrc.json",
     "lint:fix": "eslint -c .eslintrc.json --fix",
-    "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "GENERATE_SOURCEMAP=false craco build",
+    "test": "craco test",
     "test:cov": "react-scripts test --coverage",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit"
   },
@@ -48,6 +50,7 @@
     }
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.1.0",
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.18",
     "@types/node": "^14.14.11",
@@ -55,7 +58,10 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.7",
-    "husky": "^5.0.9"
+    "autoprefixer": "^9.8.6",
+    "husky": "^5.0.9",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   },
   "jest": {
     "collectCoverageFrom": [

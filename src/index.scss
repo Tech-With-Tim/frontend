@@ -6,8 +6,12 @@
   box-sizing: border-box;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root {
-  height: 100%;
+  height: 100vh;
 }
 
 body {
@@ -19,10 +23,6 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-.center-text {
-  text-align: center;
 }
 
 .button-main {
@@ -38,60 +38,20 @@ a {
   outline: none;
 }
 
-.m {
-  &-t {
-    &-5 {
-      margin-top: 5px;
-    }
-
-    &-10 {
-      margin-top: 10px;
-    }
-
-    &-15 {
-      margin-top: 15px;
-    }
-  }
-}
-
-.flex {
-  display: flex;
-  &-row {
-    flex-direction: row !important;
-
-    &-reverse {
-      flex-direction: row-reverse !important;
-    }
-  }
-
-  &-col {
-    flex-direction: column !important;
-
-    &-reverse {
-      flex-direction: column-reverse !important;
-    }
-  }
-
-  &-align {
-    &-f-end {
-      align-items: flex-end;
-    }
-  }
-}
-
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 15px;
   height: 16px;
 }
 
-::-webkit-scrollbar-track{
-  background: #21232C;
+::-webkit-scrollbar-track {
+  background: #21232c;
 }
-  
+
 ::-webkit-scrollbar-thumb {
-background-color: rgba(0, 0, 0, 0.2);
--webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,0.10),inset 0 -1px 0 rgba(0,0,0,0.07); 
-border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  border-radius: 25px;
 }
 
 @media screen and (max-width: 1000px) {
