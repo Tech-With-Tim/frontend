@@ -41,7 +41,7 @@
     "lint": "eslint -c .eslintrc.json",
     "lint:fix": "eslint -c .eslintrc.json --fix",
     "start": "craco start",
-    "build": "GENERATE_SOURCEMAP=false craco build",
+    "build": "craco build",
     "test": "craco test",
     "test:cov": "react-scripts test --coverage",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
