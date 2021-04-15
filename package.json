@@ -4,6 +4,8 @@
   "private": false,
   "dependencies": {
     "@craco/craco": "^6.1.1",
+    "@storybook/addons": "^6.2.7",
+    "@storybook/theming": "^6.2.7",
     "@tailwindcss/jit": "^0.1.18",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -42,7 +44,9 @@
     "build": "GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",
     "test:cov": "react-scripts test --coverage",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit"
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "husky": {
     "hooks": {
@@ -50,6 +54,12 @@
     }
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.2.7",
+    "@storybook/addon-essentials": "^6.2.7",
+    "@storybook/addon-links": "^6.2.7",
+    "@storybook/node-logger": "^6.2.7",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.7",
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.18",
@@ -82,6 +92,18 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   }
 }
