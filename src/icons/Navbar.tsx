@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = (props: React.SVGAttributes<SVGElement>) => {
+const Navbar = (props: React.SVGAttributes<SVGElement>): JSX.Element => {
   return (
     <svg
       width="33"

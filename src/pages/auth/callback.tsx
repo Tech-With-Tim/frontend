@@ -7,7 +7,7 @@ import { useAuthStore } from "../../stores/useAuthStore";
 import Loading from "../../components/Loading/Loading.component";
 import { useURLQuery } from "../../hooks/useURLQuery";
 
-const DiscordCallbackPage = () => {
+const DiscordCallbackPage = (): JSX.Element => {
   const query = useURLQuery();
   const setToken = useAuthStore((s) => s.setToken);
 

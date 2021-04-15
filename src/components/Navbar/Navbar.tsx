@@ -22,7 +22,7 @@ import { NavbarIcon } from "../../icons";
 import { useAuthStore } from "../../stores/useAuthStore";
 import { getAvatarURI } from "../../helpers";
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const [eventsOpen, setEventsOpen] = useState<boolean>(false);
 
@@ -42,10 +42,7 @@ const Navbar = () => {
           <NavItem>
             <Link to="/">Home</Link>
           </NavItem>
-          <NavDropdown
-            isOpen={eventsOpen}
-            onClick={() => setEventsOpen(!eventsOpen)}
-          >
+          <NavDropdown isOpen={eventsOpen} onClick={() => setEventsOpen(!eventsOpen)}>
             <div>
               <span>Events</span>
               <img src={Drop} alt="" />

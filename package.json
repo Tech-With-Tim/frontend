@@ -15,12 +15,14 @@
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "eslint": "^7.11.0",
+    "eslint-config-prettier": "^8.2.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.9.2",
@@ -71,6 +73,7 @@
     "autoprefixer": "^9.8.6",
     "husky": "^5.0.9",
     "postcss": "^7.0.35",
+    "prettier": "^2.2.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   },
   "jest": {

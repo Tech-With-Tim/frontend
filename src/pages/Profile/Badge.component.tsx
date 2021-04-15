@@ -10,7 +10,7 @@ interface Props {
   occurence: number;
 }
 
-function Badge({ name, occurence }: Props) {
+function Badge({ name, occurence }: Props): JSX.Element {
   let image;
 
   switch (name) {

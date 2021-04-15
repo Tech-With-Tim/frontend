@@ -36,12 +36,12 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       {...props}
     >
-      <span className={loading ? "opacity-0" : `flex items-center`}>
-        {icon ? <span className={`mr-2 items-center`}>{icon}</span> : null}
+      <span className={loading ? "opacity-0" : "flex items-center"}>
+        {icon ? <span className={"mr-2 items-center"}>{icon}</span> : null}
         {children}
       </span>
       {loading ? (
-        <span className={`absolute`}>
+        <span className={"absolute"}>
           <Spinner color="white" />
         </span>
       ) : null}

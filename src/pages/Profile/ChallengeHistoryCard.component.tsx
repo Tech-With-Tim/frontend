@@ -8,7 +8,7 @@ interface Props {
   no: number;
 }
 
-function ChallengeHistoryCard({ difficulty, solution, no }: Props) {
+function ChallengeHistoryCard({ difficulty, solution, no }: Props): JSX.Element {
   const difficultyClassNames = [
     "dot" + " green",
     "dot" + (difficulty !== DIFFICULTY.easy ? " yellow" : ""),

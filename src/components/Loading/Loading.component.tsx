@@ -1,7 +1,7 @@
 import React from "react";
 import { Overlay, Spinner } from "./Styles";
 
-function Loading() {
+function Loading(): JSX.Element {
   return (
     <>
       <Overlay>

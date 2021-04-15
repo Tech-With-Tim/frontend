@@ -5,16 +5,10 @@ import { Router } from "react-router-dom";
 import Loading from "./components/Loading/Loading.component";
 
 import { Switch, Route } from "react-router-dom";
-import {
-  DiscordCallbackPage,
-  HomePage,
-  LoginPage,
-  Navbar,
-  ProfilePage,
-} from "./pages";
+import { DiscordCallbackPage, HomePage, LoginPage, Navbar, ProfilePage } from "./pages";
 import { useAuthStore } from "./stores/useAuthStore";
 
-const App = () => {
+const App = (): JSX.Element => {
   const user = useAuthStore((s) => s.user);
   const hasToken = useAuthStore((s) => !!s.token);
   const fetchUser = useAuthStore((s) => s.fetchUser);
@@ -25,7 +19,7 @@ const App = () => {
         fetchUser();
       }
     }
-  }, [hasToken, user]);
+  }, [hasToken, user, fetchUser]);
 
   return (
     <>
@@ -41,11 +35,7 @@ const App = () => {
             <Navbar />
             <Switch>
               <Route path={"/login"} exact component={LoginPage} />
-              <Route
-                path={"/auth/discord/callback"}
-                exact
-                component={DiscordCallbackPage}
-              />
+              <Route path={"/auth/discord/callback"} exact component={DiscordCallbackPage} />
               <Route path={"/profile"} exact component={ProfilePage} />
               <Route path={"/"} exact component={HomePage} />
             </Switch>

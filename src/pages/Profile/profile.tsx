@@ -68,7 +68,7 @@ const badgeList = [
   },
 ];
 
-const ProfilePage = () => {
+const ProfilePage = (): JSX.Element => {
   const user = useAuthStore((s) => s.user);
 
   if (!user) {
@@ -117,13 +117,7 @@ const ProfilePage = () => {
         </ProfileInfo>
         <ProfileInfoContainer style={{ marginTop: 0 }}>
           {badgeList.map((badge) => {
-            return (
-              <Badge
-                key={badge.name}
-                name={badge.name}
-                occurence={badge.occurence}
-              />
-            );
+            return <Badge key={badge.name} name={badge.name} occurence={badge.occurence} />;
           })}
         </ProfileInfoContainer>
       </ProfileContainer>

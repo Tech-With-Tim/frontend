@@ -40,7 +40,7 @@ export const NavItem = styled.li`
   }
 `;
 
-export const NavDropdown = styled.div<any>`
+export const NavDropdown = styled.div<{ isOpen: boolean }>`
   margin-left: 3rem;
   font-size: 1.45rem;
   color: white;
@@ -213,7 +213,6 @@ export const UserImageContainer = styled.div`
   justify-content: center;
   padding: 38px;
   cursor: pointer;
-  
 `;
 
 export const UserImage = styled.img`

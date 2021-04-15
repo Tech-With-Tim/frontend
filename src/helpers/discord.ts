@@ -5,12 +5,8 @@ interface avatarArgs {
   animated?: boolean;
 }
 
-export const getAvatarURI = (
-  id: string,
-  avatar: string,
-  args: avatarArgs = {}
-) => {
-  const formattedArgs: any = [];
+export const getAvatarURI = (id: string, avatar: string, args: avatarArgs = {}): string => {
+  const formattedArgs: string[] = [];
   let ext = "png";
   for (const arg in args) {
     if (arg === "animated") {
@@ -21,7 +17,5 @@ export const getAvatarURI = (
     }
     formattedArgs.push(`${arg}=${args[arg]}`);
   }
-  return (
-    discordCDN + `avatars/${id}/${avatar}.${ext}?${formattedArgs.join("&")}`
-  );
+  return discordCDN + `avatars/${id}/${avatar}.${ext}?${formattedArgs.join("&")}`;
 };

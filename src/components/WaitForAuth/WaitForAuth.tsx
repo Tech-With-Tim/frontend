@@ -17,7 +17,7 @@ const WaitForAuth: React.FC = ({ children }) => {
         from: location,
       });
     }
-  }, [hasToken]);
+  }, [hasToken, location]);
 
   if (!hasToken) {
     return null;

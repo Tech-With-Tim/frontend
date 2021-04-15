@@ -15,15 +15,9 @@ const Home = (): JSX.Element => {
         <div className="uppercase font-bold tracking-widest text-center md:text-left">
           <h3 className="text-2xl">Welcome to</h3>
           <h1 className="text-4xl text-primary">Tech With Tim</h1>
-          <h5 className="text-lg text-secondary">
-            Programming &#38; Tech Tutorials
-          </h5>
+          <h5 className="text-lg text-secondary">Programming &#38; Tech Tutorials</h5>
           <div className="flex md:justify-between gap-5 tracking-wide mt-2 text-sm justify-center">
-            <a
-              target="_black"
-              className="flex items-center gap-2"
-              href="https://discord.gg/twt"
-            >
+            <a target="_black" className="flex items-center gap-2" href="https://discord.gg/twt">
               <DiscordIcon fill="#FA9722" width={50} height={50} />
               <span className="hidden sm:inline-block">Join Our Server</span>
             </a>
@@ -39,7 +33,7 @@ const Home = (): JSX.Element => {
         </div>
         <div className="max-w-sm xl:max-w-xl">
           <picture>
-            <img className="w-full h-auto" src={home1} />
+            <img className="w-full h-auto" src={home1} alt="" />
           </picture>
         </div>
       </div>
@@ -50,8 +44,8 @@ const Home = (): JSX.Element => {
             <h1 className="text-5xl text-primary">Code Jam</h1>
           </div>
           <p className="text-light-gray font-semibold max-w-xs lg:max-w-lg">
-            Hosted every 2 months, consisting of a different theme and allowing
-            yourself to put your skills to the test.
+            Hosted every 2 months, consisting of a different theme and allowing yourself to put your
+            skills to the test.
           </p>
           <Button className="mt-4">Read More</Button>
         </div>
@@ -96,8 +90,8 @@ const Home = (): JSX.Element => {
           <h3 className="text-2xl">Discord</h3>
           <h1 className="text-5xl text-primary">Commmunity</h1>
           <p className="text-light-gray tracking-normal normal-case font-semibold max-w-sm md:max-w-lg">
-            Become a part of one of the most active programming communities.
-            Check out all of our help channels!
+            Become a part of one of the most active programming communities. Check out all of our
+            help channels!
           </p>
           <a href="https://discord.gg/twt" target="_black">
             <Button className="mt-3">Join Us</Button>
