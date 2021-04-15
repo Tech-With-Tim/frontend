@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { REDIRECT } from "../../../config";
-import { history } from "../../../helpers";
-import { useAuthStore } from "../../../stores/useAuthStore";
-import Loading from "../../../components/Loading/Loading.component";
-import { useURLQuery } from "../../../hooks/useURLQuery";
+import { REDIRECT } from "../../config";
+import { history } from "../../helpers";
+import { useAuthStore } from "../../stores/useAuthStore";
+import Loading from "../../components/Loading/Loading.component";
+import { useURLQuery } from "../../hooks/useURLQuery";
 
 const DiscordCallbackPage = () => {
   const query = useURLQuery();
@@ -34,7 +34,6 @@ const DiscordCallbackPage = () => {
         setToken(token);
         history.replace("/");
       },
-      retry: false,
     }
   );
 

@@ -1,17 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
 
 #root {
-  height: 100vh;
+  overflow: auto;
 }
 
 body {
@@ -25,16 +32,8 @@ a {
   color: inherit;
 }
 
-.button-main {
-  background-color: #e94e1b;
-  color: white;
-  text-transform: capitalize;
-  font-weight: 600;
-  border: none;
-  width: fit-content;
-  padding: 5px 25px;
-  border-radius: 10px;
-  cursor: pointer;
+input,
+button {
   outline: none;
 }
 
@@ -52,12 +51,4 @@ a {
   -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.07);
   border-radius: 25px;
-}
-
-@media screen and (max-width: 1000px) {
-  .center-div-md-m {
-    margin: 0 auto;
-    width: fit-content;
-    text-align: center;
-  }
 }

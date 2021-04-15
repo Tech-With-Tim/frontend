@@ -11,7 +11,13 @@ import { ReactQueryDevtools } from "react-query/devtools";
 
 axios.defaults.baseURL = BACKEND_URL;
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false, // no need to spam the api...
+    },
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>

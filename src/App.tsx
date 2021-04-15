@@ -5,12 +5,14 @@ import { Router } from "react-router-dom";
 import Loading from "./components/Loading/Loading.component";
 
 import { Switch, Route } from "react-router-dom";
-import { DiscordCallbackPage, HomePage, LoginPage, ProfilePage } from "./pages";
+import {
+  DiscordCallbackPage,
+  HomePage,
+  LoginPage,
+  Navbar,
+  ProfilePage,
+} from "./pages";
 import { useAuthStore } from "./stores/useAuthStore";
-
-const Navbar = React.lazy(
-  () => import(/* webpackChunkName: "nav" */ "./components/Navbar/Navbar")
-);
 
 const App = () => {
   const user = useAuthStore((s) => s.user);
