@@ -68,9 +68,9 @@ const Navbar = (): JSX.Element => {
         <NavbarIcon fill="white" />
       </span>
       <div>
-        <Link to="/profile" className={cb({ open: isOpen, user: true })}>
+        <div className={cb({ open: isOpen, user: true })}>
           {user ? (
-            <>
+            <Link to="/profile">
               <UserImageContainer>
                 <UserImage
                   src={getAvatarURI(user.id, user.avatar, {
@@ -82,11 +82,11 @@ const Navbar = (): JSX.Element => {
                 />
               </UserImageContainer>
               <h2>Account</h2>
-            </>
+            </Link>
           ) : (
-            <>Sign In</>
+            <Link to="/login">Sign In</Link>
           )}
-        </Link>
+        </div>
       </div>
     </Nav>
   );

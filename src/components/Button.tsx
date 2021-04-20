@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
       </span>
       {loading ? (
         <span className={"absolute"}>
-          <Spinner color="white" />
+          <Spinner color={color === "primary" ? "white" : "#E94E1B"} />
         </span>
       ) : null}
     </button>

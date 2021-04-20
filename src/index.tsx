@@ -4,7 +4,7 @@ import "./index.scss";
 import App from "./App";
 
 import axios from "axios";
-import { BACKEND_URL } from "./config";
+import { BACKEND_URL } from "./constants";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { ReactQueryDevtools } from "react-query/devtools";

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { REDIRECT } from "../../config";
+import { REDIRECT } from "../../constants";
 import { history } from "../../helpers";
 import { useAuthStore } from "../../stores/useAuthStore";
 import Loading from "../../components/Loading/Loading.component";

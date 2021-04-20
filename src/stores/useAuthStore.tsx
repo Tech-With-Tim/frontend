@@ -6,7 +6,7 @@ import { User } from "../types/models.types";
 export type AuthStore = {
   user: User | null;
   token: string | null;
-  fetchUser: () => Promise<void>;
+  fetchUser: () => void;
   setToken: (token: string) => void;
 };
 
@@ -19,14 +19,16 @@ export const useAuthStore = create<AuthStore>(
 
       set({ token });
     },
-    fetchUser: async () => {
-      const user = await axios
+    fetchUser: () => {
+      axios
         .get("/users/@me", {
           headers: { Authorization: get().token },
         })
-        .then((res) => res.data);
-
-      set({ user });
+        .then((res) => set({ user: res.data }))
+        .catch(() => {
+          localStorage.removeItem("token");
+          set({ user: null, token: null });
+        });
     },
   }))
 );

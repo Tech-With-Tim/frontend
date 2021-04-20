@@ -49,6 +49,11 @@ module.exports = {
           DEFAULT: "#21232C",
           dark: "#161821",
         },
+        "blue-gray": {
+          light: "#393C49",
+          DEFAULT: "#313440",
+          dark: "#21232C",
+        },
         "light-gray": "#BBBBBB",
       },
       screens: {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { RouteComponentProps } from "react-router";
 
-import { CLIENT_ID, REDIRECT } from "../../config";
+import { CLIENT_ID, REDIRECT } from "../../constants";
 import { useAuthStore } from "../../stores/useAuthStore";
 
 const SCOPES = ["identify"];
