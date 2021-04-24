@@ -4,13 +4,14 @@ import home1 from "../images/home1.svg";
 import home2 from "../images/home2.svg";
 import challenges from "../images/home.challenges.svg";
 
+import PageContainer from "../components/PageContainer";
 import Card from "../components/Card";
 import { Button } from "../components/Button";
 import { DiscordIcon, YoutubeIcon } from "../icons";
 
 const Home = (): JSX.Element => {
   return (
-    <div className="container my-5 flex flex-col gap-24 mdlg:max-w-4xl">
+    <PageContainer>
       <div className="flex items-center justify-between flex-col md:flex-row gap-7">
         <div className="uppercase font-bold tracking-widest text-center md:text-left">
           <h3 className="text-2xl">Welcome to</h3>
@@ -103,7 +104,7 @@ const Home = (): JSX.Element => {
           </picture>
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 };
 
