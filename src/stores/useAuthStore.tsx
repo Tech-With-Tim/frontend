@@ -4,15 +4,15 @@ import { devtools } from "zustand/middleware";
 import { User } from "../types/models.types";
 
 export type AuthStore = {
-  user: User | null;
   token: string | null;
   fetchUser: () => void;
+  user: User | null | undefined;
   setToken: (token: string) => void;
 };
 
 export const useAuthStore = create<AuthStore>(
   devtools((set, get) => ({
-    user: null,
+    user: undefined,
     token: localStorage.getItem("token"),
     setToken: (token: string) => {
       localStorage.setItem("token", token);

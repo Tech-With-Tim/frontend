@@ -3,9 +3,9 @@ import React from "react";
 import { getAvatarURI } from "../helpers";
 
 import Title from "../components/Title";
+import withAuth from "../components/withAuth";
 import { useAuthStore } from "../stores/useAuthStore";
 import Loading from "../components/Loading/Loading.component";
-import WaitForAuth from "../components/WaitForAuth/WaitForAuth";
 import ChallengeHistoryController from "../controllers/ChallengeHistoryController";
 
 const ProfilePage = (): JSX.Element => {
@@ -16,7 +16,7 @@ const ProfilePage = (): JSX.Element => {
   }
 
   return (
-    <WaitForAuth>
+    <>
       <Title>Profile</Title>
       <div className="flex flex-col container flex-grow mt-8 mb-10 overflow-auto">
         <div className="flex bg-blue-gray flex-grow h-full w-full rounded-2xl p-3">
@@ -44,8 +44,8 @@ const ProfilePage = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </WaitForAuth>
+    </>
   );
 };
 
-export default ProfilePage;
+export default withAuth(ProfilePage);
