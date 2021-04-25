@@ -13,3 +13,7 @@ export const DiscordCallbackPage = lazy(
 export const Navbar = lazy(
   () => import(/* webpackChunkName: "nav" */ "./components/Navbar/Navbar")
 );
+
+export const TimathonPage = lazy(
+  () => import(/* webpackChunkName: "timathon" */ "./pages/timathon")
+);

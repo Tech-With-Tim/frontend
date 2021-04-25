@@ -5,7 +5,14 @@ import { Router } from "react-router-dom";
 import Loading from "./components/Loading/Loading.component";
 
 import { Switch, Route } from "react-router-dom";
-import { DiscordCallbackPage, HomePage, LoginPage, Navbar, ProfilePage } from "./pages";
+import {
+  DiscordCallbackPage,
+  HomePage,
+  LoginPage,
+  Navbar,
+  ProfilePage,
+  TimathonPage,
+} from "./pages";
 import { useAuthStore } from "./stores/useAuthStore";
 
 const App = (): JSX.Element => {
@@ -37,6 +44,7 @@ const App = (): JSX.Element => {
               <Route path={"/login"} exact component={LoginPage} />
               <Route path={"/auth/discord/callback"} exact component={DiscordCallbackPage} />
               <Route path={"/profile"} exact component={ProfilePage} />
+              <Route path={"/timathon"} exact component={TimathonPage} />
               <Route path={"/"} exact component={HomePage} />
             </Switch>
           </Suspense>
