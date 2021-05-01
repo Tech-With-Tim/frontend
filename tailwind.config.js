@@ -34,6 +34,7 @@ module.exports = {
       outline: {
         "no-chrome": "none",
       },
+      spacing: { 96: "32rem" },
       colors: {
         primary: {
           hover: "#C7441A",

@@ -239,6 +239,7 @@ export const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 998;
 
   div:first-child {
     display: flex;
