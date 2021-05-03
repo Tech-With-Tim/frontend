@@ -38,6 +38,11 @@ a {
 input,
 button {
   outline: none;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 ::-webkit-scrollbar {
