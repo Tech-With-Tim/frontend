@@ -1,19 +1,44 @@
 name: Build & Deploy
 
 on:
-  workflow_run:
-    workflows:
-      - Lint & Test
-    types:
-      - completed
+  push:
     branches:
-      - master
+      - prod
 
 jobs:
+  # Make better testing later...
+  test:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Prepare for testing
+        run: npm ci
+
+      - name: Run Linting
+        run: npm run lint
+
+      - name: Install Codecov
+        run: npm install -g codecov
+
+      - name: Run Tests & Report Coverage
+        run: npm run test:cov && codecov
+
+      - name: Test building
+        run: npm run build
+
   build:
-    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
     name: Build & Deploy
     runs-on: ubuntu-latest
+    needs: test 
 
     steps:
       - name: Set up QEMU

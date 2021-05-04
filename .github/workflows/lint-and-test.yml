@@ -2,6 +2,9 @@ name: Lint & Test
 
 on:
   push:
+    branches:
+      - '**'
+      - '!prod'
   pull_request:
 
 jobs:
