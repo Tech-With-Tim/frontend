@@ -1,8 +1,7 @@
+import { REDIRECT, CLIENT_ID } from "../constants";
+import { useRouter } from "next/dist/client/router";
 import React, { useEffect } from "react";
-import { RouteComponentProps } from "react-router";
-
-import { CLIENT_ID, REDIRECT } from "../../constants";
-import { useAuthStore } from "../../stores/useAuthStore";
+import { useAuthStore } from "stores/useAuthStore";
 
 const SCOPES = ["identify"];
 
@@ -16,12 +15,14 @@ const discordURL =
   `&redirect_uri=${encodeURIComponent(REDIRECT)}` +
   "&prompt=consent";
 
-const LoginPage = (props: RouteComponentProps): JSX.Element => {
+const LoginPage = (): JSX.Element => {
+  const rotuer = useRouter();
+
   useEffect(() => {
     if (useAuthStore.getState().token) {
-      props.history.push("/");
+      rotuer.push("/");
     }
-  }, [props.history]);
+  }, []);
 
   return (
     <div className={"t-ctr f-col center-div w-fit center-h-v"}>

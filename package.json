@@ -3,7 +3,6 @@
   "version": "0.1.0a",
   "private": false,
   "dependencies": {
-    "@craco/craco": "^6.1.1",
     "@storybook/addons": "^6.2.7",
     "@storybook/theming": "^6.2.7",
     "@tailwindcss/jit": "^0.1.18",
@@ -29,12 +28,13 @@
     "eslint-webpack-plugin": "^2.1.0",
     "jest-dom": "^4.0.0",
     "lint-staged": "^10.5.4",
-    "node-sass": "^4.14.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "next": "*",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-query": "^3.13.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
+    "sass": "^1.34.1",
     "styled-components": "^5.2.1",
     "typescript": "^4.0.5",
     "zustand": "^3.4.1"
@@ -42,9 +42,10 @@
   "scripts": {
     "lint": "eslint -c .eslintrc.json",
     "lint:fix": "eslint -c .eslintrc.json --fix",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "react-scripts test",
     "test:cov": "react-scripts test --coverage",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "storybook": "start-storybook -p 6006 -s public",
@@ -70,11 +71,11 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.7",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.2.6",
     "husky": "^5.0.9",
-    "postcss": "^7.0.35",
+    "postcss": "^8.3.0",
     "prettier": "^2.2.1",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
+    "tailwindcss": "^2.1.4"
   },
   "jest": {
     "collectCoverageFrom": [

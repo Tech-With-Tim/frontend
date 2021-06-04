@@ -1,17 +1,12 @@
 import React from "react";
-
-import home1 from "../images/home1.svg";
-import home2 from "../images/home2.svg";
-import challenges from "../images/home.challenges.svg";
-
-import PageContainer from "../components/PageContainer";
-import Card from "../components/Card";
+import Image from "next/image";
 import { Button } from "../components/Button";
+import Card from "../components/Card";
 import { DiscordIcon, YoutubeIcon } from "../icons";
 
-const Home = (): JSX.Element => {
+export default function HomePage(): JSX.Element {
   return (
-    <PageContainer>
+    <>
       <div className="flex items-center justify-between flex-col md:flex-row gap-7">
         <div className="uppercase font-bold tracking-widest text-center md:text-left">
           <h3 className="text-2xl">Welcome to</h3>
@@ -34,7 +29,8 @@ const Home = (): JSX.Element => {
         </div>
         <div className="max-w-sm xl:max-w-xl">
           <picture>
-            <img className="w-full h-auto" src={home1} alt="" />
+            {/* <img className="w-full h-auto" src={home1} alt="" /> */}
+            <Image src="/images/home/home1.svg" width={576} height={363} />
           </picture>
         </div>
       </div>
@@ -78,11 +74,12 @@ const Home = (): JSX.Element => {
         </div>
         <div>
           <picture>
-            <img
+            {/* <img
               className="w-full h-auto max-h-64 lg:max-h-72 xl:max-h-96"
               src={challenges}
               alt=""
-            />
+            /> */}
+            <Image src="/images/home/challenges.svg" width={520} height={512} />
           </picture>
         </div>
       </div>
@@ -100,12 +97,10 @@ const Home = (): JSX.Element => {
         </div>
         <div className="max-w-xs xl:max-w-md">
           <picture>
-            <img className="w-full h-auto" src={home2} alt="" />
+            <Image src="/images/home/home2.svg" width={448} height={427} />
           </picture>
         </div>
       </div>
-    </PageContainer>
+    </>
   );
-};
-
-export default Home;
+}

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Nav,
   Close,
-  NavBrand,
   NavDropdown,
   NavDropItems,
   NavItem,
@@ -11,13 +10,11 @@ import {
   UserImage,
   UserImageContainer,
 } from "./Styles";
+import Image from "next/image";
 
 import cb from "classnames";
 
-import Drop from "./Drop.svg";
-import close from "./close.svg";
-
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { NavbarIcon } from "../../icons";
 import { useAuthStore } from "../../stores/useAuthStore";
 import { getAvatarURI } from "../../helpers";
@@ -28,39 +25,55 @@ const Navbar = (): JSX.Element => {
 
   const user = useAuthStore((s) => s.user);
 
+  useEffect(() => {
+    console.log(isOpen);
+  }, [isOpen]);
+
   return (
     <Nav>
       <div>
-        <Link to="/">
-          <NavBrand
-            src="https://cdn.discordapp.com/avatars/501089409379205161/b8120683fca41a13895f9d6c5a31d01a.png?size=2048"
-            alt="brand"
-          />
+        <Link href="/">
+          <a href="/">
+            <Image
+              src="https://cdn.discordapp.com/avatars/501089409379205161/b8120683fca41a13895f9d6c5a31d01a.png?size=2048"
+              width={80}
+              height={80}
+              alt="brand"
+            />
+          </a>
         </Link>
         <NavItems className={cb({ open: isOpen })}>
-          <Close onClick={() => setIsOpen(false)} src={close} alt="" />
+          <Close onClick={() => setIsOpen(false)}>
+            <Image src="/images/navbar/close.svg" width={27} height={27} alt="" />
+          </Close>
           <NavItem>
-            <Link to="/">Home</Link>
+            <Link href="/">Home</Link>
           </NavItem>
           <NavDropdown isOpen={eventsOpen} onClick={() => setEventsOpen(!eventsOpen)}>
             <div>
               <span>Events</span>
-              <img src={Drop} alt="" />
+
+              <Image
+                src={"/images/navbar/Drop.svg"}
+                width={21}
+                height={10}
+                onClick={() => setIsOpen(false)}
+              />
             </div>
             <NavDropItems>
-              <Link to="/timathon">
+              <Link href="/timathon">
                 <p>Timathon</p>
               </Link>
-              <Link to="/challenges">
+              <Link href="/challenges">
                 <p>Challenges</p>
               </Link>
             </NavDropItems>
           </NavDropdown>
           <NavItem>
-            <Link to="/community">Community</Link>
+            <Link href="/community">Community</Link>
           </NavItem>
           <NavItem>
-            <Link to="/bot">Bot</Link>
+            <Link href="/bot">Bot</Link>
           </NavItem>
         </NavItems>
       </div>
@@ -70,7 +83,7 @@ const Navbar = (): JSX.Element => {
       <div>
         <div className={cb({ open: isOpen, user: true })}>
           {user ? (
-            <Link to="/profile">
+            <Link href="/profile">
               <UserImageContainer>
                 <UserImage
                   src={getAvatarURI(user.id, user.avatar, {
@@ -84,7 +97,7 @@ const Navbar = (): JSX.Element => {
               <h2>Account</h2>
             </Link>
           ) : (
-            <Link to="/login">Sign In</Link>
+            <Link href="/login">Sign In</Link>
           )}
         </div>
       </div>

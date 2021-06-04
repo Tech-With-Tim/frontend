@@ -1,12 +1,10 @@
 import React from "react";
-
-import { getAvatarURI } from "../helpers";
-
-import Title from "../components/Title";
-import withAuth from "../components/withAuth";
-import { useAuthStore } from "../stores/useAuthStore";
-import Loading from "../components/Loading/Loading.component";
-import ChallengeHistoryController from "../controllers/ChallengeHistoryController";
+import Loading from "components/Loading/Loading.component";
+import withAuth from "components/withAuth";
+import { useAuthStore } from "stores/useAuthStore";
+import Title from "components/Title";
+import ChallengeHistoryController from "controllers/ChallengeHistoryController";
+import { getAvatarURI } from "helpers";
 
 const ProfilePage = (): JSX.Element => {
   const user = useAuthStore((s) => s.user!);
