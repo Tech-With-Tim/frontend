@@ -13,7 +13,7 @@ export type AuthStore = {
 export const useAuthStore = create<AuthStore>(
   devtools((set, get) => ({
     user: undefined,
-    token: localStorage.getItem("token"),
+    token: typeof window !== "undefined" && localStorage.getItem("token"),
     setToken: (token: string) => {
       localStorage.setItem("token", token);
 

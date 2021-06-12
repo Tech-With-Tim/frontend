@@ -30,6 +30,9 @@ yarn-error.log*
 .idea
 .vscode
 
+# Nextjs
+.next
+
 .eslintcache
 
 .env

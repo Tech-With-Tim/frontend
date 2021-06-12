@@ -1,19 +1,12 @@
 import React from "react";
-import { Button } from "../components/Button";
-import Card from "../components/Card";
-import PageContainer from "../components/PageContainer";
+import Image from "next/image";
 
-import prizesCard from "../images/timathon.prizesCard.svg";
-import teamsCard from "../images/timathon.teamsCard.svg";
-import historyCard from "../images/timathon.historyCard.svg";
-import history from "../images/timathon.history.svg";
-import timeline from "../images/timathon.timeline.svg";
-import prizes from "../images/timathon.prizes.svg";
-import timathon from "../images/timathon.svg";
+import { Button } from "components/Button";
+import Card from "components/Card";
 
-function Timathon(): JSX.Element {
+export default function TimathonPage(): JSX.Element {
   return (
-    <PageContainer>
+    <>
       <div className="font-bold uppercase mt-16 tracking-widest flex">
         <div>
           <div className="text-2xl">timathon</div>
@@ -26,7 +19,7 @@ function Timathon(): JSX.Element {
         </div>
         <div className="ml-auto">
           <picture>
-            <img className="w-96" src={timathon} alt="" />
+            <Image src="/images/timathon/timathon.svg" width={788} height={429} />
           </picture>
         </div>
       </div>
@@ -36,7 +29,7 @@ function Timathon(): JSX.Element {
             <div className="text-xl tracking-widest text-secondary pt-3 pb-8">Prizes</div>
             <div className="ml-auto">
               <picture>
-                <img className="w-20" src={prizesCard} alt="" />
+                <Image src="/images/timathon.prizesCard.svg" width={121} height={121} />
               </picture>
             </div>
           </div>
@@ -48,7 +41,8 @@ function Timathon(): JSX.Element {
             <div className="text-xl tracking-widest text-secondary pt-3 pb-8">Teams</div>
             <div className="ml-auto">
               <picture>
-                <img className="w-20" src={teamsCard} alt="" />
+                {/* <img className="w-20" src={teamsCard} alt="" /> */}
+                <Image src="/images/timathon/teamsCard.svg" width={106} height={106} />
               </picture>
             </div>
           </div>
@@ -60,7 +54,8 @@ function Timathon(): JSX.Element {
             <div className="text-xl tracking-widest text-secondary pt-3 pb-8">History</div>
             <div className="ml-auto">
               <picture>
-                <img className="w-20" src={historyCard} alt="" />
+                {/* <img className="w-20" src={historyCard} alt="" /> */}
+                <Image src="/images/timathon/historyCard.svg" width={67} height={67} />
               </picture>
             </div>
           </div>
@@ -71,7 +66,8 @@ function Timathon(): JSX.Element {
       <div className="font-bold uppercase flex mt-28">
         <div>
           <picture>
-            <img className="w-96" src={prizes} alt="prizes" />
+            {/* <img className="w-96" src={prizes} alt="prizes" /> */}
+            <Image src="/images/timathon/prizes.svg" width={659} height={369} />
           </picture>
         </div>
         <div className="ml-auto">
@@ -111,7 +107,8 @@ function Timathon(): JSX.Element {
 
             <div className="ml-auto">
               <picture>
-                <img className="w-96" src={timeline} alt="timeline" />
+                {/* <img className="w-96" src={timeline} alt="timeline" /> */}
+                <Image src="/images/timathon/timeline.svg" width={402} height={370} />
               </picture>
             </div>
           </div>
@@ -122,7 +119,8 @@ function Timathon(): JSX.Element {
           <div className="text-5xl text-primary mt-14">history</div>
           <div className="ml-auto">
             <picture>
-              <img className="w-64" src={history} alt="history" />
+              {/* <img className="w-64" src={history} alt="history" /> */}
+              <Image src="/images/timathon/history.svg" width={307} height={214} />
             </picture>
           </div>
         </div>
@@ -135,8 +133,6 @@ function Timathon(): JSX.Element {
           <div className="text-sm pt-3">generate</div>
         </div>
       </div>
-    </PageContainer>
+    </>
   );
 }
-
-export default Timathon;

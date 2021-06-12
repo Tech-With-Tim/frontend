@@ -221,7 +221,7 @@ export const UserImage = styled.img`
   height: 70px;
 `;
 
-export const Close = styled.img`
+export const Close = styled.div`
   width: 35px;
   position: relative;
   top: 0;
@@ -229,12 +229,10 @@ export const Close = styled.img`
 
   cursor: pointer;
 
-  @media screen and (min-width: 900px) {
-    display: none;
-  }
+  display: none;
 `;
 
-export const Nav = styled.div`
+export const Nav = styled.nav`
   margin: 35px 50px;
   display: flex;
   align-items: center;
@@ -277,6 +275,7 @@ export const Nav = styled.div`
 
   .open {
     left: 0;
+    z-index: 10;
   }
 
   @media screen and (min-width: 900px) {
