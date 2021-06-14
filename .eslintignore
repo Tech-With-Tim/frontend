@@ -12,4 +12,5 @@
 test.js
 !.eslintrc.js
 .vscode
-react-app-env.d.ts
+.pnp.js
+.yarn

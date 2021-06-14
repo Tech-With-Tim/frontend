@@ -12,3 +12,5 @@
 test.js
 !.eslintrc.js
 .vscode
+.pnp.js
+.yarn
