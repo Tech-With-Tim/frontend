@@ -2,7 +2,13 @@
 /node_modules
 /.pnp
 .pnp.js
-/api
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
 # testing
 /coverage
 
@@ -25,6 +31,6 @@ yarn-error.log*
 .vscode
 
 .eslintcache
-/postgres
-/postgre-data
 .env
+
+*Dockerfile*
