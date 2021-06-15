@@ -26,8 +26,8 @@ We use GitHub to host code, to track issues and feature requests, as well as acc
 
 1. Fork the repo and create your branch from `master`.
 2. If you've added code that should be tested, **add tests**.
-3. Ensure the test suite passes. Test with `npm test`.
-4. Make sure your code lints. Lint with `npm run lint`.
+3. Ensure the test suite passes. Test with `yarn test`.
+4. Make sure your code lints. Lint with `yarn run lint`.
 5. Issue that PR!
 
 ## MIT Software License
@@ -52,9 +52,9 @@ We use GitHub [issues](https://github.com/Tech-With-Tim/Frontend/issues) to trac
 - What actually happens
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
 
-People *love* thorough bug reports. I'm not even kidding.
+People _love_ thorough bug reports. I'm not even kidding.
 
 ## Consistent Coding Style
 
 - 2 spaces for indentation rather than tabs
-- You can try running `npm run lint` for style unification
+- You can try running `yarn run lint` for style unification
