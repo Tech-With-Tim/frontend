@@ -36,7 +36,7 @@ These instructions will get you a copy of the project up and running on your loc
 Install the required packages with Node Package Manager:
 
 ```sh
-yarb install
+yarn install
 ```
 
 ### Running

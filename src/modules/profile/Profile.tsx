@@ -1,6 +1,6 @@
 import React from "react";
-import Title from "components/Title";
-import { getAvatarURI } from "helpers";
+import Title from "../../components/Title";
+import { getAvatarURI } from "../../helpers";
 import { useAuthStore } from "../../stores/useAuthStore";
 import ChallengeHistoryController from "./ChallengeHistoryController";
 
