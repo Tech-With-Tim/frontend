@@ -1,26 +1,23 @@
 import React from "react";
-import { useAuthStore } from "../stores/useAuthStore";
-import Loading from "./Loading/Loading.component";
+import { useAuthStore } from "stores/useAuthStore";
 
-const withAuth = <T extends Record<string, unknown>>(
-  C: React.FC<T>
-): ((props: T) => JSX.Element) => {
-  const Wrapper = (props: T): JSX.Element => {
-    const user = useAuthStore((state) => state.user);
-    // const hasToken = useAuthStore((state) => !!state.token);
+const WithAuth: React.FC = ({ children }) => {
+  const user = useAuthStore((s) => s.user);
+  const hasToken = useAuthStore((s) => !!s.token);
 
-    // if (!hasToken || user == null) {
-    //   return <Redirect to="/" />;
-    // }
+  if (!hasToken) {
+    return <p>no access</p>;
+  }
 
-    if (user === undefined) {
-      return <Loading />;
-    }
+  if (user === undefined) {
+    return <>loading...</>;
+  }
 
-    return <C {...props} />;
-  };
+  if (user == null) {
+    return <p>error fetching user</p>;
+  }
 
-  return Wrapper;
+  return <>{children}</>;
 };
 
-export default withAuth;
+export default WithAuth;

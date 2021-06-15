@@ -1,5 +1,5 @@
 import React from "react";
-import ChallengeHistory from "../components/ChallengeHistory";
+import ChallengeHistory from "../../components/ChallengeHistory";
 
 const ChallengeHistoryController = (props: { className: string }): JSX.Element => {
   const results: { title: string; passed: boolean; difficulty: 0 | 1 | 2 }[] = [

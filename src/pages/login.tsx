@@ -16,13 +16,13 @@ const discordURL =
   "&prompt=consent";
 
 const LoginPage = (): JSX.Element => {
-  const rotuer = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     if (useAuthStore.getState().token) {
-      rotuer.push("/");
+      router.push("/");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className={"t-ctr f-col center-div w-fit center-h-v"}>
