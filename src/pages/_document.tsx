@@ -1,11 +1,11 @@
-import Document from "next/document";
-import { ServerStyleSheet } from "styled-components";
 import React from "react";
+import { ServerStyleSheet } from "styled-components";
+import Document, { DocumentContext, DocumentInitialProps } from "next/document";
 
 // Styled components have trouble rendering all styles in Nextjs
 // Solution: https://dev.to/rsanchezp/next-js-and-styled-components-style-loading-issue-3i68
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 

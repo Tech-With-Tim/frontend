@@ -7,10 +7,10 @@ import axios from "axios";
 import Navbar from "components/Navbar/Navbar";
 import PageContainer from "components/PageContainer";
 import { BACKEND_URL } from "../constants";
+import { useAuthStore } from "stores/useAuthStore";
 
 import "styles/tailwind.css";
 import "styles/index.scss";
-import { useAuthStore } from "stores/useAuthStore";
 
 axios.defaults.baseURL = BACKEND_URL;
 
@@ -22,7 +22,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export default function App({ pageProps, Component }: AppProps) {
+const App = ({ pageProps, Component }: AppProps): JSX.Element => {
   const user = useAuthStore((s) => s.user);
   const hasToken = useAuthStore((s) => !!s.token);
   const fetchUser = useAuthStore((s) => s.fetchUser);
@@ -44,4 +44,6 @@ export default function App({ pageProps, Component }: AppProps) {
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
-}
+};
+
+export default App;
