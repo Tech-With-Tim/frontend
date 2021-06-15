@@ -4,31 +4,76 @@ on:
   push:
     branches:
       - '**'
-      - '!prod'
   pull_request:
 
 jobs:
-  lint-and-test:
-    name: Lint & Test
-    runs-on: ubuntu-latest
-
+  packages:
+    name: Install Dependencies
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+      - name: Cache
+        uses: actions/cache@v2
+        id: yarn-cache
         with:
-          node-version: 14.x
+          path: |
+            ./node_modules
+            ./.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-2
 
-      - name: Run Linting
-        run: npm run lint
+      - name: Install Packages
+        run: yarn install
+      
+  lint:
+    name: Lint
+    runs-on: ubuntu-20.04
+    needs: packages
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-#       - name: Install Codecov
-#         run: npm install -g codecov
+      - name: Restore Cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            ./node_modules
+            ./.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-2
+        
+      - name: Run lint
+        run: yarn run lint
+  
+  # TODO: tesitng job 
+  
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    needs: 
+     - packages
+     - lint
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-#       - name: Run Tests & Report Coverage
-#         run: npm run test:cov && codecov
-
-      - name: Test building
-        run: npm run build
+      - name: Restore Cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            ./node_modules
+            ./.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-2
+        
+      - name: Run build
+        run: yarn run build
