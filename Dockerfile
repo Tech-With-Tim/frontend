@@ -3,7 +3,8 @@ FROM node:alpine AS deps
 
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
 RUN yarn install
 
 # Rebuild the source code only when needed
