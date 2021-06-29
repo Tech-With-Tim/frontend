@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  api:
+    image: techwithtim/twt_api:latest
+    env_file: .env
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: key
+      DB_URI: postgres://api:api@api:5432/api
+
+  cdn:
+    image: techwithtim/cdn:latest
+    env_file: .env
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: api
+      POSTGRES_PASSWORD: api
+      DB_NAME: api
+      DB_HOST: db
+      DB_PORT: "5432"
+      SECRET_KEY: key
+      MAX_FILE_SIZE: "30"
+
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - ..:/workspace
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USERNAME: api
+      POSTGRES_PASSWORD: api
+      POSTGRES_DATABASE: api

@@ -1,0 +1,14 @@
+{
+  "name": "Tech With Tim",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "forwardPorts": [3000],
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "dsznajder.es7-react-js-snippets"
+  ],
+  "remoteUser": "twt"
+}
