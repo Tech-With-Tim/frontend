@@ -16,6 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Create SHA Container Tag
+        id: sha_tag
+        run: |
+          tag=$(cut -c 1-7 <<< $GITHUB_SHA)
+          echo "::set-output name=tag::$tag"
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
@@ -42,13 +48,40 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ secrets.DOCKER_REPO_API }}
+          tags: |
+            techwithtim/frontend:${{ steps.sha_tag.outputs.tag }}
+            techwithtim/frontend:latest
           builder: ${{ steps.buildx.outputs.name }}
           cache-to: type=local,dest=/tmp/.buildx-cache
           cache-from: type=local,src=/tmp/.buildx-cache
 
-      - name: Redeploy on Server
-        uses: joelwmale/webhook-action@master
+  deploy:
+    name: Deploy on Kubernetes cluster
+    runs-on: ubuntu-20.04
+    needs: build
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
         with:
-          url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
-          body: '{"token": "${{ secrets.DEPLOY_TOKEN }}"}'
+          repository: Tech-With-Tim/k8s
+          token: ${{ secrets.REPO_TOKEN }}
+
+      - name: Create SHA Container Tag
+        id: sha_tag
+        run: |
+          tag=$(cut -c 1-7 <<< $GITHUB_SHA)
+          echo "::set-output name=tag::$tag"
+
+      - name: Deploy to Kubernetes
+        uses: fjogeleit/yaml-update-action@master
+        with:
+          repository: Tech-With-Tim/k8s
+          token: ${{ secrets.REPO_TOKEN }}
+          branch: "main"
+          createPR: "false"
+          updateFile: "true"
+          message: "Redeploy Frontend: `${{ steps.sha_tag.outputs.tag }}`"
+          valueFile: "frontend/deployment.yml"
+          propertyPath: "spec.template.spec.containers.0.image"
+          value: "techwithtim/frontend:${{ steps.sha_tag.outputs.tag }}"
