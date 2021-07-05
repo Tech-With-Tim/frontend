@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "src/**"
+      - ".github/workflows/**"
       - "public/**"
       - ".eslintrc.json"
       - "prettierrc.json"
@@ -15,6 +16,7 @@ on:
       - "yarn.lock"
   pull_request:
     paths:
+      - ".github/workflows/**"
       - "src/**"
       - "public/**"
       - ".eslintrc.json"

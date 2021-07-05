@@ -5,6 +5,7 @@ on:
     workflows: ["Lint & Test"]
     branches: ["prod"]
     types: ["completed"]
+  workflow_dispatch:
 
 jobs:
   build:
