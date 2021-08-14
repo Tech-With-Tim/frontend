@@ -1,4 +1,4 @@
-name: global:label_pr
+name: Label_pr
 
 on:
   - pull_request_target
