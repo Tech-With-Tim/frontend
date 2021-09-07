@@ -36,6 +36,7 @@ module.exports = {
       },
       spacing: { 96: "32rem" },
       colors: {
+        blurple: "#7289da",
         primary: {
           hover: "#C7441A",
           lighter: "#EE6F45",

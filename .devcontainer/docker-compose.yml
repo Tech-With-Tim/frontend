@@ -58,6 +58,11 @@ services:
     image: postgres:13-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USERNAME: api
+      POSTGRES_USER: api
       POSTGRES_PASSWORD: api
-      POSTGRES_DATABASE: api
+      POSTGRES_DB: api
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
