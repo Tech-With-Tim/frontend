@@ -2,17 +2,21 @@ version: "3.7"
 
 services:
   api:
-    image: techwithtim/twt_api:latest
+    image: ghcr.io/tech-with-tim/api:latest
+    ports:
+      - 5000:5000
     env_file: .env
     restart: unless-stopped
     environment:
       SECRET_KEY: key
-      DB_URI: postgres://api:api@api:5432/api
+      POSTGRES_URI: postgresql://api:api@db:5432/api
 
   cdn:
     image: techwithtim/cdn:latest
     env_file: .env
     restart: unless-stopped
+    ports:
+      - 8000:5000
     environment:
       POSTGRES_USER: api
       POSTGRES_PASSWORD: api
@@ -21,6 +25,26 @@ services:
       DB_PORT: "5432"
       SECRET_KEY: key
       MAX_FILE_SIZE: "30"
+
+  redis:
+    image: redis:6.2.5-alpine
+
+  websockets:
+    image: techwithtim/websockets:latest
+    restart: unless-stopped
+    ports:
+      - 5001:5000
+    environment:
+      POSTGRES_USER: api
+      POSTGRES_PASSWORD: api
+      DB_NAME: api
+      DB_HOST: db
+      DB_PORT: "5432"
+      SECRET_KEY: key
+      REDIS_HOST: redis
+      REDIS_USERNAME: ""
+      REDIS_PASS: ""
+      REDIS_DB: "0"
 
   workspace:
     build:
@@ -31,7 +55,7 @@ services:
       - ..:/workspace
 
   db:
-    image: postgres
+    image: postgres:13-alpine
     restart: unless-stopped
     environment:
       POSTGRES_USERNAME: api
