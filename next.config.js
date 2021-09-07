@@ -11,12 +11,12 @@ module.exports = (phase) => {
 
   const env = {
     API_URI: (() => {
-      if (isDev) return process.env.API_URI ?? "https://dev.twtcodejam.net/api";
+      if (isDev) return process.env.API_URI ?? "https://dev.twtcodejam.net/api/v1";
       if (isProd) {
-        return "https://dev.twtcodejam.net/api";
+        return "https://dev.twtcodejam.net/api/v1";
       }
       if (isStaging) {
-        return "https://dev.twtcodejam.net/api";
+        return "https://dev.twtcodejam.net/api/v1";
       }
       return "API_URL:not (isDev,isProd,isStaging)";
     })(),

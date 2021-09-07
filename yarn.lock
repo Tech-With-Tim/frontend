@@ -7866,6 +7866,7 @@ __metadata:
     prettier: ^2.3.1
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-hot-toast: ^2.1.1
     react-is: ^17.0.2
     react-query: ^3.13.6
     sass: ^1.34.1
@@ -8312,6 +8313,15 @@ fsevents@^1.2.7:
     pify: ^4.0.1
     slash: ^2.0.0
   checksum: 9b4cb70aa0b43bf89b18cf0e543695185e16d8dd99c17bdc6a1df0a9f88ff9dc8d2467aebace54c3842fc451a564882948c87a3b4fbdb1cacf3e05fd54b6ac5d
+  languageName: node
+  linkType: hard
+
+"goober@npm:^2.0.35":
+  version: 2.0.41
+  resolution: "goober@npm:2.0.41"
+  peerDependencies:
+    csstype: ^2.6.2
+  checksum: ef1e4c7491633972497dfd28ef5641154d30f494455101456ba8ed70902e6127167bc2e9a258504a3bad9a3dd354805c9290353c84065af30cb6fcbeecb37894
   languageName: node
   linkType: hard
 
@@ -12739,6 +12749,18 @@ fsevents@^1.2.7:
     react: ^16.6.0 || ^17.0.0
     react-dom: ^16.6.0 || ^17.0.0
   checksum: 8db5d875bb681dabc5f277ee3b0debe96d58f4b6d33cb2e9c72a026f4fd22e44722d2a7164a21b51a4002a6cd40d716195731ba37cc1d73167adf85e56441c1c
+  languageName: node
+  linkType: hard
+
+"react-hot-toast@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "react-hot-toast@npm:2.1.1"
+  dependencies:
+    goober: ^2.0.35
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 029d375d50a937143d21d71c11d4ad00dbb58a6ca12a50378a7bd80fe294821def6f7a5b9a53404d31230d1fed5246453a73b9f90bc85811036e53b802ad790f
   languageName: node
   linkType: hard
 

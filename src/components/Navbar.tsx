@@ -3,8 +3,10 @@ import Image from "next/image";
 
 import logo from "images/logo.png";
 import DiscordIcon from "icons/Discord";
+import { useAuthStore } from "stores/useAuthStore";
 
 const Navbar = (): JSX.Element => {
+  const { user } = useAuthStore();
   const redirect = useMemo(
     () =>
       `${process.env.API_URI}/auth/discord/redirect?callback=${process.env.origin}/auth/discord/callback`,
@@ -22,10 +24,14 @@ const Navbar = (): JSX.Element => {
         <li>Community</li>
       </ul>
       <div>
-        <a href={redirect} className="bg-blurple px-5 py-1.5 rounded-md flex gap-2 items-center">
-          <DiscordIcon className="w-7 h-7" />
-          Login
-        </a>
+        {user ? (
+          "hmm"
+        ) : (
+          <a href={redirect} className="bg-blurple px-5 py-1.5 rounded-md flex gap-2 items-center">
+            <DiscordIcon className="w-7 h-7" />
+            Login
+          </a>
+        )}
       </div>
     </nav>
   );
