@@ -15,7 +15,7 @@ const Navbar = (): JSX.Element => {
 
   return (
     <nav className="px-8 py-4 flex gap-7 items-center">
-      <div className="w-12 h-12">
+      <div className="w-16 h-16">
         <Image src={logo} />
       </div>
       <ul className="flex gap-4 items-center flex-grow">
