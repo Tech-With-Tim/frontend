@@ -2,31 +2,9 @@ name: Lint & Test
 
 on:
   push:
-    paths:
-      - "src/**"
-      - ".github/workflows/**"
-      - "public/**"
-      - ".eslintrc.json"
-      - "prettierrc.json"
-      - ".yarnrc.yml"
-      - "next-env.d.ts"
-      - "next.config.js"
-      - "package.json"
-      - "tsconfig.json"
-      - "yarn.lock"
-  pull_request:
-    paths:
-      - ".github/workflows/**"
-      - "src/**"
-      - "public/**"
-      - ".eslintrc.json"
-      - "prettierrc.json"
-      - ".yarnrc.yml"
-      - "next-env.d.ts"
-      - "next.config.js"
-      - "package.json"
-      - "tsconfig.json"
-      - "yarn.lock"
+    branches:
+      - main
+  pull_request: 
 
 jobs:
   packages:
