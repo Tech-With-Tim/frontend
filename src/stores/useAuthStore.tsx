@@ -4,9 +4,10 @@ import { devtools } from "zustand/middleware";
 import { User } from "../types/models.types";
 
 export type AuthStore = {
-  token: string | null;
+  user?: User;
+  token?: string;
+  logout: () => void;
   fetchUser: () => void;
-  user: User | null | undefined;
   setToken: (token: string) => void;
 };
 
@@ -29,6 +30,10 @@ export const useAuthStore = create<AuthStore>(
           localStorage.removeItem("token");
           set({ user: null, token: null });
         });
+    },
+    logout: () => {
+      localStorage.removeItem("token");
+      set({ token: null, user: null });
     },
   }))
 );
