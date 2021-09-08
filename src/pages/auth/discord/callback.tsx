@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
         callback: `${process.env.origin}/auth/discord/callback`,
       },
       {
-        baseURL: "http://api:5000/api/v1",
+        baseURL: process.env.SERVER_API_URI,
       }
     )
     .then((res) => ({

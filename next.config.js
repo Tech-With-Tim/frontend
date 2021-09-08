@@ -10,23 +10,33 @@ module.exports = (phase) => {
   const isStaging = phase == PHASE_PRODUCTION_BUILD && process.env.STAGING === 'true';
 
   const env = {
-    API_URI: (() => {
-      if (isDev) return process.env.API_URI ?? "https://dev.twtcodejam.net/api/v1";
+    SERVER_API_URI: (() => {
+      if (isDev) return process.env.SERVER_API_URI ?? "https://dev.twtcodejam.net/api/v1"; // change later...
       if (isProd) {
-        return "https://dev.twtcodejam.net/api/v1";
+        return "https://dev.twtcodejam.net/api/v1"; // change later...
       }
       if (isStaging) {
-        return "https://dev.twtcodejam.net/api/v1";
+        return "https://dev.twtcodejam.net/api/v1"; // change later...
+      }
+      return "API_URL:not (isDev,isProd,isStaging)";
+    })(),
+    API_URI: (() => {
+      if (isDev) return process.env.API_URI ?? "https://dev.twtcodejam.net/api/v1"; // change later...
+      if (isProd) {
+        return "https://dev.twtcodejam.net/api/v1"; // change later...
+      }
+      if (isStaging) {
+        return "https://dev.twtcodejam.net/api/v1"; // change later...
       }
       return "API_URL:not (isDev,isProd,isStaging)";
     })(),
     origin: (() => {
-      if (isDev) return process.env.ORIGIN ?? "https://dev.twtcodejam.net";
+      if (isDev) return process.env.ORIGIN ?? "https://dev.twtcodejam.net"; // change later...
       if (isProd) {
-        return "https://dev.twtcodejam.net";
+        return "https://dev.twtcodejam.net"; // change later...
       }
       if (isStaging) {
-        return "https://dev.twtcodejam.net";
+        return "https://dev.twtcodejam.net"; // change later...
       }
     })()
   }

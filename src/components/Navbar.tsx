@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import Avatar from "./Avatar";
 import logo from "images/logo.png";
@@ -9,7 +10,7 @@ import { useAuthStore } from "stores/useAuthStore";
 
 const Navbar = (): JSX.Element => {
   const user = useAuthStore((s) => s.user);
-  const logout = useAuthStore((s) => s.logout);
+
   const redirect = useMemo(
     () =>
       `${process.env.API_URI}/auth/discord/redirect?callback=${process.env.origin}/auth/discord/callback`,
@@ -18,17 +19,19 @@ const Navbar = (): JSX.Element => {
 
   return (
     <nav className="px-8 py-4 flex gap-10 items-center">
-      <div className="w-14 h-14">
-        <Image src={logo} />
+      <div>
+        <Image src={logo} width={56} height={56} layout="fixed" />
       </div>
-      <ul className="flex gap-4 items-center flex-grow">
+      <ul className="flex gap-7 font-bold items-center flex-grow">
         <li>Home</li>
         <li>Events</li>
         <li>Community</li>
       </ul>
       <div>
         {user ? (
-          <Avatar onClick={logout} src={getAvatarURL(user)} width={50} height={50} />
+          <Link href="/profile/@me">
+            <Avatar src={getAvatarURL(user)} width={45} height={45} />
+          </Link>
         ) : (
           <a
             href={redirect}

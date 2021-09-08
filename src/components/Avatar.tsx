@@ -17,8 +17,8 @@ const Avatar = ({ src, width, height, ...props }: Props): JSX.Element => {
       )}
       {...props}
     >
-      <div className="flex items-center justify-center bg-accent rounded-full p-0.5 w-full h-full">
-        <Image src={src} width={width} height={height} className="rounded-full" />
+      <div className="flex items-center justify-center bg-secondary-700 rounded-full p-0.5 w-full h-full">
+        <Image src={src} width={width} height={height} quality={100} className="rounded-full" />
       </div>
     </div>
   );

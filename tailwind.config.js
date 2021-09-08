@@ -38,25 +38,16 @@ module.exports = {
       colors: {
         blurple: "#7289da",
         primary: {
-          hover: "#C7441A",
-          lighter: "#EE6F45",
-          light: "#F9A826",
-          DEFAULT: "#FA9722",
-          dark: "#F39200",
+          400: "#F9B233",
+          DEFAULT: "#F39200",
+          700: "#E94E1B",
+          900: "#BE1622"
         },
         secondary: {
-          DEFAULT: "#E94E1B",
-        },
-        accent: {
-          DEFAULT: "#21232C",
-          dark: "#161821",
-        },
-        "blue-gray": {
-          light: "#393C49",
-          DEFAULT: "#313440",
-          dark: "#21232C",
-        },
-        "light-gray": "#BBBBBB",
+          DEFAULT: "#252830",
+          700: "#21232C",
+          900: "#121418"
+        }
       },
       screens: {
         mdlg: {

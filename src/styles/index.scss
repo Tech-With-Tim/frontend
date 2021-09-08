@@ -56,3 +56,51 @@ button {
   -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
   border-radius: 25px;
 }
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 3rem /* 48px */;
+  padding-left: 3rem /* 48px */;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-right: 1.25rem /* 20px */;
+    padding-left: 1.25rem /* 20px */;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-right: 1.5rem /* 24px */;
+    padding-left: 1.5rem /* 24px */;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-right: 2rem /* 32px */;
+    padding-left: 2rem /* 32px */;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-right: 2.5rem /* 40px */;
+    padding-left: 2.5rem /* 40px */;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+    padding-right: 3rem /* 48px */;
+    padding-left: 3rem /* 48px */;
+  }
+}

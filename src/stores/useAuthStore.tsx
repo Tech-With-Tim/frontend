@@ -4,7 +4,7 @@ import { devtools } from "zustand/middleware";
 import { User } from "../types/models.types";
 
 export type AuthStore = {
-  user?: User;
+  user?: User & { roles: string[] };
   token?: string;
   logout: () => void;
   fetchUser: () => void;
