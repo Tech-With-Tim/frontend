@@ -7,8 +7,8 @@ import { DiscordIcon, YoutubeIcon } from "../icons";
 export default function HomePage(): JSX.Element {
   return (
     <>
-      <div className="flex items-center justify-between flex-col md:flex-row gap-7">
-        <div className="uppercase font-bold tracking-widest text-center md:text-left">
+			<div className="flex items-center justify-between flex-col md:flex-row gap-7">
+				<div className="uppercase font-bold tracking-widest text-left">
           <h3 className="text-2xl">Welcome to</h3>
           <h1 className="text-4xl text-primary">Tech With Tim</h1>
           <h5 className="text-lg text-secondary">Programming &#38; Tech Tutorials</h5>
