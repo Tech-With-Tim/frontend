@@ -7,15 +7,15 @@ import { DiscordIcon, YoutubeIcon } from "../icons";
 export default function HomePage(): JSX.Element {
   return (
     <>
-			<div className="flex items-center justify-between flex-col md:flex-row gap-7">
-				<div className="uppercase font-bold tracking-widest text-left">
+      <div className="flex items-center justify-between flex-col md:flex-row gap-7">
+        <div className="uppercase font-bold tracking-widest text-left">
           <h3 className="text-2xl">Welcome to</h3>
           <h1 className="text-4xl text-primary">Tech With Tim</h1>
           <h5 className="text-lg text-secondary">Programming &#38; Tech Tutorials</h5>
-          <div className="flex md:justify-between gap-5 tracking-wide mt-2 text-sm justify-center">
+          <div className="flex w-full md:justify-between gap-3 tracking-wide mt-3 text-sm justify-start flex-col md:flex-row">
             <a target="_black" className="flex items-center gap-2" href="https://discord.gg/twt">
               <DiscordIcon fill="#FA9722" width={50} height={50} />
-              <span className="hidden sm:inline-block">Join Our Server</span>
+              <span className="sm:inline-block">Join Our Server</span>
             </a>
             <a
               target="_black"
@@ -23,7 +23,7 @@ export default function HomePage(): JSX.Element {
               href="https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg"
             >
               <YoutubeIcon fill="#FA9722" width={55} height={53} />
-              <span className="hidden sm:inline-block">Subscribe</span>
+              <span className="sm:inline-block">Subscribe</span>
             </a>
           </div>
         </div>
