@@ -249,17 +249,17 @@ export const Nav = styled.nav`
   justify-content: space-between;
   z-index: 998;
   box-shadow: 0 5px 10px rgba(0.1, 0.1, 0.1, 0.5);
-	position: fixed;
-	width: 100%;
-	top: 0;
-	background-color: #21232c;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #21232c;
 
   div:first-child {
     display: flex;
     align-items: center;
   }
 
-	@media screen and (max-width: 900px) {
+  @media screen and (max-width: 900px) {
     padding: 10px 15px;
     .user {
       position: fixed;
