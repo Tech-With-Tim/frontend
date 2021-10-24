@@ -1,5 +1,15 @@
 import styled, { keyframes } from "styled-components";
 
+export const NavLogo = styled.img`
+  width: 70px;
+  height: 70px;
+
+  @media screen and (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
+`;
+
 export const NavBrand = styled.img`
   width: 80px;
   height: 80px;
@@ -233,18 +243,24 @@ export const Close = styled.div`
 `;
 
 export const Nav = styled.nav`
-  margin: 35px 50px;
+  padding: 15px 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 998;
+  box-shadow: 0 5px 10px rgba(0.1, 0.1, 0.1, 0.5);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	background-color: #21232c;
 
   div:first-child {
     display: flex;
     align-items: center;
   }
 
-  @media screen and (max-width: 900px) {
+	@media screen and (max-width: 900px) {
+    padding: 10px 15px;
     .user {
       position: fixed;
       bottom: 25px;
