@@ -32,7 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={cb(
         className,
         colorSchemas[color],
-        "cursor-pointer flex items-center relative justify-center font-semibold tracking-wide px-5 py-1 rounded-xl focus:outline-none"
+        "cursor-pointer flex items-center relative justify-center font-semibold tracking-wide px-5 py-1 rounded-full focus:outline-none hover:opacity-70"
       )}
       {...props}
     >
