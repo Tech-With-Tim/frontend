@@ -10,12 +10,12 @@ export default function HomePage(): JSX.Element {
       <div className="flex items-center justify-between flex-col md:flex-row gap-7">
         <div className="uppercase font-bold tracking-widest text-left">
           <h3 className="text-2xl">Welcome to</h3>
-          <h1 className="text-4xl text-primary">Tech With Tim</h1>
+					<h1 className="font-secondary text-5xl text-primary">Tech With Tim</h1>
           <h5 className="text-lg text-secondary">Programming &#38; Tech Tutorials</h5>
-          <div className="flex w-full md:justify-between gap-3 tracking-wide mt-3 text-sm justify-start flex-col md:flex-row">
+          <div className="flex w-full md:justify-between gap-3 tracking-wide mt-3 text-sm justify-start flex-row md:flex-row">
             <a target="_black" className="flex items-center gap-2" href="https://discord.gg/twt">
               <DiscordIcon fill="#FA9722" width={50} height={50} />
-              <span className="sm:inline-block">Join Our Server</span>
+              <span className="hidden sm:inline-block">Join Our Server</span>
             </a>
             <a
               target="_black"
@@ -23,7 +23,7 @@ export default function HomePage(): JSX.Element {
               href="https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg"
             >
               <YoutubeIcon fill="#FA9722" width={55} height={53} />
-              <span className="sm:inline-block">Subscribe</span>
+              <span className="hidden sm:inline-block">Subscribe</span>
             </a>
           </div>
         </div>
@@ -38,7 +38,7 @@ export default function HomePage(): JSX.Element {
         <div className="text-center md:text-left flex flex-col items-center md:items-start">
           <div className="uppercase tracking-widest font-bold">
             <h3 className="text-2xl">Timathon</h3>
-            <h1 className="text-5xl text-primary">Code Jam</h1>
+            <h1 className="font-secondary text-4xl text-primary">Code Jam</h1>
           </div>
           <p className="text-light-gray font-semibold max-w-xs lg:max-w-lg">
             Hosted every 2 months, consisting of a different theme and allowing yourself to put your
@@ -66,7 +66,7 @@ export default function HomePage(): JSX.Element {
       <div className="flex flex-col gap-7 items-center justify-between md:flex-row-reverse">
         <div className="flex flex-col items-center md:items-end uppercase tracking-widest font-bold">
           <h3 className="text-2xl">Weekly</h3>
-          <h1 className="text-5xl text-primary">Challenges</h1>
+          <h1 className="font-secondary text-4xl text-primary">Challenges</h1>
           <p className="text-light-gray tracking-normal normal-case font-semibold">
             Submit your solutions and earn badges!
           </p>
@@ -86,7 +86,7 @@ export default function HomePage(): JSX.Element {
       <div className="flex justify-between items-center flex-col md:flex-row gap-7">
         <div className="flex flex-col uppercase tracking-widest font-bold items-center text-center md:text-left md:items-start">
           <h3 className="text-2xl">Discord</h3>
-          <h1 className="text-5xl text-primary">Commmunity</h1>
+          <h1 className="font-secondary text-4xl text-primary">Commmunity</h1>
           <p className="text-light-gray tracking-normal normal-case font-semibold max-w-sm md:max-w-lg">
             Become a part of one of the most active programming communities. Check out all of our
             help channels!
