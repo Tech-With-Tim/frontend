@@ -7,6 +7,7 @@ import {
   NavDropItems,
   NavItem,
   NavItems,
+  NavLogo,
   UserImage,
   UserImageContainer,
 } from "./Styles";
@@ -34,10 +35,8 @@ const Navbar = (): JSX.Element => {
       <div>
         <Link href="/">
           <a href="/">
-            <Image
+            <NavLogo
               src="https://cdn.discordapp.com/avatars/501089409379205161/b8120683fca41a13895f9d6c5a31d01a.png?size=2048"
-              width={80}
-              height={80}
               alt="brand"
             />
           </a>
